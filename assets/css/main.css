@@ -1,5 +1,20 @@
 @import url(fontawesome-all.min.css);
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+
+/* resize email input based on window size */
+.mailinput { width: 30rem; }
+@media screen and (max-width: 980px) {
+  .mailinput {
+    width: 25rem; } }
+
+@media screen and (max-width: 736px) {
+  .mailinput {
+    width: 20rem; } }
+
+@media screen and (max-width: 480px) {
+  .mailinput {
+    width: 15rem; } }
+
 /*
 	Eventually by HTML5 UP
 	html5up.net | @ajlkn
@@ -377,6 +392,8 @@ header h6 + p {
   margin-top: -0.6em;
   line-height: 1.5em; }
 
+/* removes line break for small width.. no likey
+
 @media screen and (max-width: 980px) {
   header br {
     display: none; } }
@@ -388,6 +405,7 @@ header h6 + p {
 @media screen and (max-width: 480px) {
   header br {
     display: none; } }
+    */
 
 /* Icon */
 .icon {
@@ -775,7 +793,7 @@ button,
     input[type="button"],
     button,
     .button {
-      padding: 0; } }
+      padding: 1; } }
 
 /* Header */
 #header h1 {
