@@ -36,9 +36,12 @@
 
 					// Images (in the format of 'url': 'alignment').
 						images: {
-							'images/bg01.jpg': 'center',
-							'images/bg02.jpg': 'center',
-							'images/bg03.jpg': 'center'
+							'images/mid/ABGjg.jpg': 'center',
+							'images/mid/arromanches30x40.jpg': 'center',
+							'images/mid/bgpa.jpg': 'center',
+							'images/mid/fimj.jpg': 'center',
+							'images/mid/pawfob.jpg': 'center',
+							'images/mid/pdb.jpg': 'center'
 						},
 
 					// Delay.
