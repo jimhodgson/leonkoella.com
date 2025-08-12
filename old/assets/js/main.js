@@ -1,746 +1,174 @@
 /*
-	Lens by HTML5 UP
+	Eventually by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
-var main = (function($) { var _ = {
+(function() {
 
-	/**
-	 * Settings.
-	 * @var {object}
-	 */
-	settings: {
+	"use strict";
 
-		// Preload all images.
-			preload: false,
+	var	$body = document.querySelector('body');
 
-		// Slide duration (must match "duration.slide" in _vars.scss).
-			slideDuration: 500,
+	// Methods/polyfills.
 
-		// Layout duration (must match "duration.layout" in _vars.scss).
-			layoutDuration: 750,
+		// classList | (c) @remy | github.com/remy/polyfills | rem.mit-license.org
+			!function(){function t(t){this.el=t;for(var n=t.className.replace(/^\s+|\s+$/g,"").split(/\s+/),i=0;i<n.length;i++)e.call(this,n[i])}function n(t,n,i){Object.defineProperty?Object.defineProperty(t,n,{get:i}):t.__defineGetter__(n,i)}if(!("undefined"==typeof window.Element||"classList"in document.documentElement)){var i=Array.prototype,e=i.push,s=i.splice,o=i.join;t.prototype={add:function(t){this.contains(t)||(e.call(this,t),this.el.className=this.toString())},contains:function(t){return-1!=this.el.className.indexOf(t)},item:function(t){return this[t]||null},remove:function(t){if(this.contains(t)){for(var n=0;n<this.length&&this[n]!=t;n++);s.call(this,n,1),this.el.className=this.toString()}},toString:function(){return o.call(this," ")},toggle:function(t){return this.contains(t)?this.remove(t):this.add(t),this.contains(t)}},window.DOMTokenList=t,n(Element.prototype,"classList",function(){return new t(this)})}}();
 
-		// Thumbnails per "row" (must match "misc.thumbnails-per-row" in _vars.scss).
-			thumbnailsPerRow: 2,
+		// canUse
+			window.canUse=function(p){if(!window._canUse)window._canUse=document.createElement("div");var e=window._canUse.style,up=p.charAt(0).toUpperCase()+p.slice(1);return p in e||"Moz"+up in e||"Webkit"+up in e||"O"+up in e||"ms"+up in e};
 
-		// Side of main wrapper (must match "misc.main-side" in _vars.scss).
-			mainSide: 'right'
+		// window.addEventListener
+			(function(){if("addEventListener"in window)return;window.addEventListener=function(type,f){window.attachEvent("on"+type,f)}})();
 
-	},
+	// Play initial animations on page load.
+		window.addEventListener('load', function() {
+			window.setTimeout(function() {
+				$body.classList.remove('is-preload');
+			}, 100);
+		});
 
-	/**
-	 * Window.
-	 * @var {jQuery}
-	 */
-	$window: null,
+	// Slideshow Background.
+		(function() {
 
-	/**
-	 * Body.
-	 * @var {jQuery}
-	 */
-	$body: null,
+			// Settings.
+				var settings = {
 
-	/**
-	 * Main wrapper.
-	 * @var {jQuery}
-	 */
-	$main: null,
+					// Images (in the format of 'url': 'alignment').
+						images: {
+							'images/mid/arromanches30x40.jpg': 'center',
+							'images/mid/ABGjg.jpg': 'center',
+							'images/mid/bgpa.jpg': 'center',
+							'images/mid/fimj.jpg': 'center',
+							'images/mid/pawfob.jpg': 'center',
+							'images/mid/pdb.jpg': 'center'
+						},
 
-	/**
-	 * Thumbnails.
-	 * @var {jQuery}
-	 */
-	$thumbnails: null,
-
-	/**
-	 * Viewer.
-	 * @var {jQuery}
-	 */
-	$viewer: null,
-
-	/**
-	 * Toggle.
-	 * @var {jQuery}
-	 */
-	$toggle: null,
-
-	/**
-	 * Nav (next).
-	 * @var {jQuery}
-	 */
-	$navNext: null,
-
-	/**
-	 * Nav (previous).
-	 * @var {jQuery}
-	 */
-	$navPrevious: null,
-
-	/**
-	 * Slides.
-	 * @var {array}
-	 */
-	slides: [],
-
-	/**
-	 * Current slide index.
-	 * @var {integer}
-	 */
-	current: null,
-
-	/**
-	 * Lock state.
-	 * @var {bool}
-	 */
-	locked: false,
-
-	/**
-	 * Keyboard shortcuts.
-	 * @var {object}
-	 */
-	keys: {
-
-		// Escape: Toggle main wrapper.
-			27: function() {
-				_.toggle();
-			},
-
-		// Up: Move up.
-			38: function() {
-				_.up();
-			},
-
-		// Down: Move down.
-			40: function() {
-				_.down();
-			},
-
-		// Space: Next.
-			32: function() {
-				_.next();
-			},
-
-		// Right Arrow: Next.
-			39: function() {
-				_.next();
-			},
-
-		// Left Arrow: Previous.
-			37: function() {
-				_.previous();
-			}
-
-	},
-
-	/**
-	 * Initialize properties.
-	 */
-	initProperties: function() {
-
-		// Window, body.
-			_.$window = $(window);
-			_.$body = $('body');
-
-		// Thumbnails.
-			_.$thumbnails = $('#thumbnails');
-
-		// Viewer.
-			_.$viewer = $(
-				'<div id="viewer">' +
-					'<div class="inner">' +
-						'<div class="nav-next"></div>' +
-						'<div class="nav-previous"></div>' +
-						'<div class="toggle"></div>' +
-					'</div>' +
-				'</div>'
-			).appendTo(_.$body);
-
-		// Nav.
-			_.$navNext = _.$viewer.find('.nav-next');
-			_.$navPrevious = _.$viewer.find('.nav-previous');
-
-		// Main wrapper.
-			_.$main = $('#main');
-
-		// Toggle.
-			$('<div class="toggle"></div>')
-				.appendTo(_.$main);
-
-			_.$toggle = $('.toggle');
-
-	},
-
-	/**
-	 * Initialize events.
-	 */
-	initEvents: function() {
-
-		// Window.
-
-			// Remove is-preload-* classes on load.
-				_.$window.on('load', function() {
-
-					_.$body.removeClass('is-preload-0');
-
-					window.setTimeout(function() {
-						_.$body.removeClass('is-preload-1');
-					}, 100);
-
-					window.setTimeout(function() {
-						_.$body.removeClass('is-preload-2');
-					}, 100 + Math.max(_.settings.layoutDuration - 150, 0));
-
-				});
-
-			// Disable animations/transitions on resize.
-				var resizeTimeout;
-
-				_.$window.on('resize', function() {
-
-					_.$body.addClass('is-preload-0');
-					window.clearTimeout(resizeTimeout);
-
-					resizeTimeout = window.setTimeout(function() {
-						_.$body.removeClass('is-preload-0');
-					}, 100);
-
-				});
-
-		// Viewer.
-
-			// Hide main wrapper on tap (<= medium only).
-				_.$viewer.on('touchend', function() {
-
-					if (breakpoints.active('<=medium'))
-						_.hide();
-
-				});
-
-			// Touch gestures.
-				_.$viewer
-					.on('touchstart', function(event) {
-
-						// Record start position.
-							_.$viewer.touchPosX = event.originalEvent.touches[0].pageX;
-							_.$viewer.touchPosY = event.originalEvent.touches[0].pageY;
-
-					})
-					.on('touchmove', function(event) {
-
-						// No start position recorded? Bail.
-							if (_.$viewer.touchPosX === null
-							||	_.$viewer.touchPosY === null)
-								return;
-
-						// Calculate stuff.
-							var	diffX = _.$viewer.touchPosX - event.originalEvent.touches[0].pageX,
-								diffY = _.$viewer.touchPosY - event.originalEvent.touches[0].pageY;
-								boundary = 20,
-								delta = 50;
-
-						// Swipe left (next).
-							if ( (diffY < boundary && diffY > (-1 * boundary)) && (diffX > delta) )
-								_.next();
-
-						// Swipe right (previous).
-							else if ( (diffY < boundary && diffY > (-1 * boundary)) && (diffX < (-1 * delta)) )
-								_.previous();
-
-						// Overscroll fix.
-							var	th = _.$viewer.outerHeight(),
-								ts = (_.$viewer.get(0).scrollHeight - _.$viewer.scrollTop());
-
-							if ((_.$viewer.scrollTop() <= 0 && diffY < 0)
-							|| (ts > (th - 2) && ts < (th + 2) && diffY > 0)) {
-
-								event.preventDefault();
-								event.stopPropagation();
-
-							}
-
-					});
-
-		// Main.
-
-			// Touch gestures.
-				_.$main
-					.on('touchstart', function(event) {
-
-						// Bail on xsmall.
-							if (breakpoints.active('<=xsmall'))
-								return;
-
-						// Record start position.
-							_.$main.touchPosX = event.originalEvent.touches[0].pageX;
-							_.$main.touchPosY = event.originalEvent.touches[0].pageY;
-
-					})
-					.on('touchmove', function(event) {
-
-						// Bail on xsmall.
-							if (breakpoints.active('<=xsmall'))
-								return;
-
-						// No start position recorded? Bail.
-							if (_.$main.touchPosX === null
-							||	_.$main.touchPosY === null)
-								return;
-
-						// Calculate stuff.
-							var	diffX = _.$main.touchPosX - event.originalEvent.touches[0].pageX,
-								diffY = _.$main.touchPosY - event.originalEvent.touches[0].pageY;
-								boundary = 20,
-								delta = 50,
-								result = false;
-
-						// Swipe to close.
-							switch (_.settings.mainSide) {
-
-								case 'left':
-									result = (diffY < boundary && diffY > (-1 * boundary)) && (diffX > delta);
-									break;
-
-								case 'right':
-									result = (diffY < boundary && diffY > (-1 * boundary)) && (diffX < (-1 * delta));
-									break;
-
-								default:
-									break;
-
-							}
-
-							if (result)
-								_.hide();
-
-						// Overscroll fix.
-							var	th = _.$main.outerHeight(),
-								ts = (_.$main.get(0).scrollHeight - _.$main.scrollTop());
-
-							if ((_.$main.scrollTop() <= 0 && diffY < 0)
-							|| (ts > (th - 2) && ts < (th + 2) && diffY > 0)) {
-
-								event.preventDefault();
-								event.stopPropagation();
-
-							}
-
-					});
-		// Toggle.
-			_.$toggle.on('click', function() {
-				_.toggle();
-			});
-
-			// Prevent event from bubbling up to "hide event on tap" event.
-				_.$toggle.on('touchend', function(event) {
-					event.stopPropagation();
-				});
-
-		// Nav.
-			_.$navNext.on('click', function() {
-				_.next();
-			});
-
-			_.$navPrevious.on('click', function() {
-				_.previous();
-			});
-
-		// Keyboard shortcuts.
-
-			// Ignore shortcuts within form elements.
-				_.$body.on('keydown', 'input,select,textarea', function(event) {
-					event.stopPropagation();
-				});
-
-			_.$window.on('keydown', function(event) {
-
-				// Ignore if xsmall is active.
-					if (breakpoints.active('<=xsmall'))
-						return;
-
-				// Check keycode.
-					if (event.keyCode in _.keys) {
-
-						// Stop other events.
-							event.stopPropagation();
-							event.preventDefault();
-
-						// Call shortcut.
-							(_.keys[event.keyCode])();
-
-					}
-
-			});
-
-	},
-
-	/**
-	 * Initialize viewer.
-	 */
-	initViewer: function() {
-
-		// Bind thumbnail click event.
-			_.$thumbnails
-				.on('click', '.thumbnail', function(event) {
-
-					var $this = $(this);
-
-					// Stop other events.
-						event.preventDefault();
-						event.stopPropagation();
-
-					// Locked? Blur.
-						if (_.locked)
-							$this.blur();
-
-					// Switch to this thumbnail's slide.
-						_.switchTo($this.data('index'));
-
-				});
-
-		// Create slides from thumbnails.
-			_.$thumbnails.children()
-				.each(function() {
-
-					var	$this = $(this),
-						$thumbnail = $this.children('.thumbnail'),
-						s;
-
-					// Slide object.
-						s = {
-							$parent: $this,
-							$slide: null,
-							$slideImage: null,
-							$slideCaption: null,
-							url: $thumbnail.attr('href'),
-							loaded: false
-						};
-
-					// Parent.
-						$this.attr('tabIndex', '-1');
-
-					// Slide.
-
-						// Create elements.
-	 						s.$slide = $('<div class="slide"><div class="caption"></div><div class="image"></div></div>');
-
-	 					// Image.
- 							s.$slideImage = s.$slide.children('.image');
-
- 							// Set background stuff.
-	 							s.$slideImage
-		 							.css('background-image', '')
-		 							.css('background-position', ($thumbnail.data('position') || 'center'));
-
-						// Caption.
-							s.$slideCaption = s.$slide.find('.caption');
-
-							// Move everything *except* the thumbnail itself to the caption.
-								$this.children().not($thumbnail)
-									.appendTo(s.$slideCaption);
-
-					// Preload?
-						if (_.settings.preload) {
-
-							// Force image to download.
-								var $img = $('<img src="' + s.url + '" />');
-
-							// Set slide's background image to it.
-								s.$slideImage
-									.css('background-image', 'url(' + s.url + ')');
-
-							// Mark slide as loaded.
-								s.$slide.addClass('loaded');
-								s.loaded = true;
-
-						}
-
-					// Add to slides array.
-						_.slides.push(s);
-
-					// Set thumbnail's index.
-						$thumbnail.data('index', _.slides.length - 1);
-
-				});
-
-	},
-
-	/**
-	 * Initialize stuff.
-	 */
-	init: function() {
-
-		// Breakpoints.
-			breakpoints({
-				xlarge:  [ '1281px',  '1680px' ],
-				large:   [ '981px',   '1280px' ],
-				medium:  [ '737px',   '980px'  ],
-				small:   [ '481px',   '736px'  ],
-				xsmall:  [ null,      '480px'  ]
-			});
-
-		// Everything else.
-			_.initProperties();
-			_.initViewer();
-			_.initEvents();
-
-		// Show first slide if xsmall isn't active.
-			breakpoints.on('>xsmall', function() {
-
-				if (_.current === null)
-					_.switchTo(0, true);
-
-			});
-
-	},
-
-	/**
-	 * Switch to a specific slide.
-	 * @param {integer} index Index.
-	 */
-	switchTo: function(index, noHide) {
-
-		// Already at index and xsmall isn't active? Bail.
-			if (_.current == index
-			&&	!breakpoints.active('<=xsmall'))
-				return;
-
-		// Locked? Bail.
-			if (_.locked)
-				return;
-
-		// Lock.
-			_.locked = true;
-
-		// Hide main wrapper if medium is active.
-			if (!noHide
-			&&	breakpoints.active('<=medium'))
-				_.hide();
-
-		// Get slides.
-			var	oldSlide = (_.current !== null ? _.slides[_.current] : null),
-				newSlide = _.slides[index];
-
-		// Update current.
-			_.current = index;
-
-		// Deactivate old slide (if there is one).
-			if (oldSlide) {
-
-				// Thumbnail.
-					oldSlide.$parent
-						.removeClass('active');
-
-				// Slide.
-					oldSlide.$slide.removeClass('active');
-
-			}
-
-		// Activate new slide.
-
-			// Thumbnail.
-				newSlide.$parent
-					.addClass('active')
-					.focus();
-
-			// Slide.
-				var f = function() {
-
-					// Old slide exists? Detach it.
-						if (oldSlide)
-							oldSlide.$slide.detach();
-
-					// Attach new slide.
-						newSlide.$slide.appendTo(_.$viewer);
-
-					// New slide not yet loaded?
-						if (!newSlide.loaded) {
-
-							window.setTimeout(function() {
-
-								// Mark as loading.
-									newSlide.$slide.addClass('loading');
-
-								// Wait for it to load.
-									$('<img src="' + newSlide.url + '" />').on('load', function() {
-									//window.setTimeout(function() {
-
-										// Set background image.
-											newSlide.$slideImage
-												.css('background-image', 'url(' + newSlide.url + ')');
-
-										// Mark as loaded.
-											newSlide.loaded = true;
-											newSlide.$slide.removeClass('loading');
-
-										// Mark as active.
-											newSlide.$slide.addClass('active');
-
-										// Unlock.
-											window.setTimeout(function() {
-												_.locked = false;
-											}, 100);
-
-									//}, 1000);
-									});
-
-							}, 100);
-
-						}
-
-					// Otherwise ...
-						else {
-
-							window.setTimeout(function() {
-
-								// Mark as active.
-									newSlide.$slide.addClass('active');
-
-								// Unlock.
-									window.setTimeout(function() {
-										_.locked = false;
-									}, 100);
-
-							}, 100);
-
-						}
+					// Delay.
+						delay: 6000
 
 				};
 
-				// No old slide? Switch immediately.
-					if (!oldSlide)
-						(f)();
+			// Vars.
+				var	pos = 0, lastPos = 0,
+					$wrapper, $bgs = [], $bg,
+					k, v;
 
-				// Otherwise, wait for old slide to disappear first.
-					else
-						window.setTimeout(f, _.settings.slideDuration);
+			// Create BG wrapper, BGs.
+				$wrapper = document.createElement('div');
+					$wrapper.id = 'bg';
+					$body.appendChild($wrapper);
 
-	},
+				for (k in settings.images) {
 
-	/**
-	 * Switches to the next slide.
-	 */
-	next: function() {
+					// Create BG.
+						$bg = document.createElement('div');
+							$bg.style.backgroundImage = 'url("' + k + '")';
+							$bg.style.backgroundPosition = settings.images[k];
+							$wrapper.appendChild($bg);
 
-		// Calculate new index.
-			var i, c = _.current, l = _.slides.length;
+					// Add it to array.
+						$bgs.push($bg);
 
-			if (c >= l - 1)
-				i = 0;
-			else
-				i = c + 1;
+				}
 
-		// Switch.
-			_.switchTo(i);
+			// Main loop.
+				$bgs[pos].classList.add('visible');
+				$bgs[pos].classList.add('top');
 
-	},
+				// Bail if we only have a single BG or the client doesn't support transitions.
+					if ($bgs.length == 1
+					||	!canUse('transition'))
+						return;
 
-	/**
-	 * Switches to the previous slide.
-	 */
-	previous: function() {
+				window.setInterval(function() {
 
-		// Calculate new index.
-			var i, c = _.current, l = _.slides.length;
+					lastPos = pos;
+					pos++;
 
-			if (c <= 0)
-				i = l - 1;
-			else
-				i = c - 1;
+					// Wrap to beginning if necessary.
+						if (pos >= $bgs.length)
+							pos = 0;
 
-		// Switch.
-			_.switchTo(i);
+					// Swap top images.
+						$bgs[lastPos].classList.remove('top');
+						$bgs[pos].classList.add('visible');
+						$bgs[pos].classList.add('top');
 
-	},
+					// Hide last image after a short delay.
+						window.setTimeout(function() {
+							$bgs[lastPos].classList.remove('visible');
+						}, settings.delay / 2);
 
-	/**
-	 * Switches to slide "above" current.
-	 */
-	up: function() {
+				}, settings.delay);
 
-		// Fullscreen? Bail.
-			if (_.$body.hasClass('fullscreen'))
-				return;
+		})();
 
-		// Calculate new index.
-			var i, c = _.current, l = _.slides.length, tpr = _.settings.thumbnailsPerRow;
+	// Signup Form.
+		(function() {
 
-			if (c <= (tpr - 1))
-				i = l - (tpr - 1 - c) - 1;
-			else
-				i = c - tpr;
+			// Vars.
+				var $form = document.querySelectorAll('#signup-form')[0],
+					$submit = document.querySelectorAll('#signup-form input[type="submit"]')[0],
+					$message;
 
-		// Switch.
-			_.switchTo(i);
+			// Bail if addEventListener isn't supported.
+				if (!('addEventListener' in $form))
+					return;
 
-	},
+			// Message.
+				$message = document.createElement('span');
+					$message.classList.add('message');
+					$form.appendChild($message);
 
-	/**
-	 * Switches to slide "below" current.
-	 */
-	down: function() {
+				$message._show = function(type, text) {
 
-		// Fullscreen? Bail.
-			if (_.$body.hasClass('fullscreen'))
-				return;
+					$message.innerHTML = text;
+					$message.classList.add(type);
+					$message.classList.add('visible');
 
-		// Calculate new index.
-			var i, c = _.current, l = _.slides.length, tpr = _.settings.thumbnailsPerRow;
+					window.setTimeout(function() {
+						$message._hide();
+					}, 3000);
 
-			if (c >= l - tpr)
-				i = c - l + tpr;
-			else
-				i = c + tpr;
+				};
 
-		// Switch.
-			_.switchTo(i);
+				$message._hide = function() {
+					$message.classList.remove('visible');
+				};
 
-	},
+			// Events.
+			// Note: If you're *not* using AJAX, get rid of this event listener.
+				$form.addEventListener('submit', function(event) {
 
-	/**
-	 * Shows the main wrapper.
-	 */
-	show: function() {
+					event.stopPropagation();
+					event.preventDefault();
 
-		// Already visible? Bail.
-			if (!_.$body.hasClass('fullscreen'))
-				return;
+					// Hide message.
+						$message._hide();
 
-		// Show main wrapper.
-			_.$body.removeClass('fullscreen');
+					// Disable submit.
+						$submit.disabled = true;
 
-		// Focus.
-			_.$main.focus();
+					// Process form.
+					// Note: Doesn't actually do anything yet (other than report back with a "thank you"),
+					// but there's enough here to piece together a working AJAX submission call that does.
+						window.setTimeout(function() {
 
-	},
+							// Reset form.
+								$form.reset();
 
-	/**
-	 * Hides the main wrapper.
-	 */
-	hide: function() {
+							// Enable submit.
+								$submit.disabled = false;
 
-		// Already hidden? Bail.
-			if (_.$body.hasClass('fullscreen'))
-				return;
+							// Show message.
+								$message._show('success', 'Thank you!');
+								//$message._show('failure', 'Something went wrong. Please try again.');
 
-		// Hide main wrapper.
-			_.$body.addClass('fullscreen');
+						}, 750);
 
-		// Blur.
-			_.$main.blur();
+				});
 
-	},
+		})();
 
-	/**
-	 * Toggles main wrapper.
-	 */
-	toggle: function() {
-
-		if (_.$body.hasClass('fullscreen'))
-			_.show();
-		else
-			_.hide();
-
-	},
-
-}; return _; })(jQuery); main.init();
+})();
