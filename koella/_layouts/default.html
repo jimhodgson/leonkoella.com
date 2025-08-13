@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+  <head>
+    {%- include head.html -%}
+  </head>
+  <body>
+    {% include header.html %}
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">{{ content }}</div>
+    </main>
+
+    {% include footer.html %}
+
+    <script>
+      // mobile nav toggle (if you added the navbar from earlier)
+      (function () {
+        const btn = document.querySelector("[data-nav-toggle]");
+        const nav = document.getElementById("site-nav");
+        if (!btn || !nav) return;
+        btn.addEventListener("click", () => {
+          const open = nav.classList.toggle("is-open");
+          btn.setAttribute("aria-expanded", open ? "true" : "false");
+        });
+      })();
+    </script>
+  </body>
+</html>

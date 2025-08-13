@@ -5,7 +5,7 @@ POSTS_DIR="${POSTS_DIR:-.}"
 
 # YAML single-quote helper: wraps in '...' and escapes internal single quotes
 yaml_q() { printf "'%s'" "${1//\'/\'\'}"; }
-
+w
 ask() {
   # ask VAR "Prompt" [default]
   local __var="$1" __prompt="$2" __default="${3-}" input

@@ -1,0 +1,285 @@
+---
+---
+@import url('https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap');
+
+/* =========================
+   Koella — base styles
+   ========================= */
+  
+:root {
+  --site-max: 72rem;         /* overall content width */
+  --gutter: 1rem;            /* page padding */
+  --header-h: 110px;          /* header height */
+  --border: 1px solid rgba(0,0,0,.08);
+
+  --bg: #3a3945;
+  --bg-soft: #49484d;
+  --text: #fff;
+  --muted: #666;
+  --accent: #ffffff;            /* tweak if you want colored links */
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+ font-family: "Walter Turncoat", Helvetica, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* Type scale */
+h1, h2, h3, h4, h5, h6 { line-height: 1.25; margin: 1.5rem 0 .75rem; }
+h1 { font-size: clamp(1.8rem, 4vw, 2.25rem); }
+h2 { font-size: clamp(1.4rem, 3vw, 1.75rem); }
+h3 { font-size: 1.25rem; }
+
+/* Links & media */
+a { color: #d7c932; text-underline-offset: 3px; }
+a:hover { opacity: .9; }
+img, video { max-width: 100%; height: auto; display: block; }
+
+/* Layout helpers */
+.wrapper { max-width: var(--site-max); margin-inline: auto; padding-inline: var(--gutter); }
+.page-content { padding: 2rem 0; }
+.prose { max-width: 70ch; margin-inline: auto; }
+.visually-hidden { position: absolute !important; height: 1px; width: 1px; overflow: hidden; clip: rect(1px,1px,1px,1px); white-space: nowrap; }
+
+/* Code blocks */
+pre, code { font: .95rem/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
+
+/* Buttons (light utility) */
+.btn {
+  display: inline-block; padding: .6rem .9rem; border-radius: 10px;
+  border: 1px solid #ddd; text-decoration: none; color: inherit;
+}
+.btn:hover { background: #f5f5f5; }
+
+/* =========================
+   Header / Navbar
+   ========================= */
+.site-header {
+  height: var(--header-h);
+}
+.nav-wrap {
+  height: 100%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  position: relative; /* for toggle positioning */
+  gap: .4rem;
+}
+
+.brand { text-align: center;
+  font-weight: 700; text-decoration: none; color: inherit;  font-size: 3em;}
+.nav   { justify-self: center; }
+.nav ul { 
+ margin-block: 0;
+ margin: 0; 
+ padding: 0;
+  display: flex; gap: 1rem; justify-content: center; list-style-type: none; }
+.nav a { text-decoration: none; color: inherit; opacity: .85; }
+.nav a:hover { opacity: 1; }
+.nav a.active { font-weight: 600; border-bottom: 2px solid currentColor; }
+.nav-toggle { justify-self: end; display: none; background: none; border: 0; font-size: 1.25rem; line-height: 1; }
+
+@media (max-width: 800px) {
+  .nav { position: fixed; left: 0; right: 0; top: var(--header-h); display: none; background: var(--bg); }
+  .nav.is-open { display: block; }
+  .nav ul { flex-direction: column; align-items: center; }
+  .nav-toggle { position: absolute; right: var(--gutter, 1rem); top: .5rem; }
+  .nav a { color: var(--accent);}
+}
+
+.postimage { padding: 5px; }
+/* =========================
+   Home (hero + grid)
+   ========================= */
+/* Hero: force 4:3 */
+.home-hero {
+  display: block;           /* it's an <a> */
+  position: relative;
+  aspect-ratio: 4 / 3;      /* width : height */
+  max-height: 80vh;
+  margin: 0 0 2rem;
+  overflow: hidden;
+}
+.home-hero img {
+  position: static; 
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  padding: 5px;
+}
+.hero-text {
+  display: none;
+  position: absolute; inset: auto 0 0 0; padding: 1rem 1.25rem;
+  background: linear-gradient(transparent, rgba(0,0,0,.55)); color: #fff;
+}
+
+/* Fallback */
+@supports not (aspect-ratio: 1) {
+  .home-hero { height: 0; padding-top: 75%; } /* 3/4 = 75% */
+}
+
+.home-hero {
+  position: absolute; inset: auto 0 0 0; padding: 1rem 1.25rem;
+  background: linear-gradient(transparent, rgba(0,0,0,.55)); color: #fff;
+}
+.home-hero h1 { margin: .25rem 0 .5rem; font-size: clamp(1.5rem, 3vw, 2.25rem); }
+
+.home-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+/* Only the image link gets 4:3 */
+.home-card > a {
+  display: block;
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.home-card > a img {
+  position: static; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  padding: 1px;
+}
+
+/* Fallback */
+@supports not (aspect-ratio: 1) {
+  .home-card > a { height: 0; padding-top: 75%; }
+}
+
+/* Make sure the title link stays normal */
+.home-card .meta .title a {
+  display: inline; /* default, but explicit just in case */
+}
+
+
+.home-card .meta { padding: .75rem 1rem; }
+.home-card .title { margin: 0 0 .25rem; font-weight: 600; }
+.home-card .date { font-size: .9rem; color: var(--muted); }
+
+/* Optional full-bleed hero even inside wrappers */
+.full-bleed { margin-inline: calc(50% - 50vw); width: 100vw; }
+
+/* =========================
+   Post content
+   ========================= */
+.post-header { margin-bottom: 1rem; }
+.post-header .post-title { margin: 0 0 .25rem; }
+.post-meta { color: var(--muted); font-size: .95rem; }
+.post-content img { border-radius: 12px; }
+
+/* =========================
+   Footer
+   ========================= */
+.site-footer { margin-top: 3rem; background: var(--bg-soft); border-top: var(--border); }
+.footer-grid {
+  display: grid; gap: 1.5rem; padding: 2rem 0;
+  grid-template-columns: 1.5fr 1fr 1fr;
+}
+.tagline { color: var(--muted); margin: .25rem 0 0; }
+.foot-nav ul, .social { list-style: none; margin: 0; padding: 0; }
+.foot-nav li + li { margin-top: .25rem; }
+.foot-nav a, .social a { text-decoration: none; opacity: .85; }
+.foot-nav a:hover, .social a:hover { opacity: 1; }
+.to-top { display: inline-block; margin-top: .5rem; font-size: .9rem; }
+
+@media (max-width: 800px) {
+  .footer-grid { grid-template-columns: 1fr; }
+}
+
+/* =========================
+   Tables & lists (nice defaults)
+   ========================= */
+table { width: 100%; border-collapse: collapse; margin: 0px; font-size: .95rem; }
+th, td { text-align: left; border-bottom: var(--border); padding: .5rem .6rem; }
+/* ul, ol { padding-inline-start: 1.25rem; } */
+
+/* Focus ring for accessibility */
+:focus-visible { outline: 2px solid #4c9ffe; outline-offset: 2px; }
+
+/* Ornate gold frame + shadow */
+.frame-gold {
+  /* thickness controls */
+  --frame: 10px;   /* outer frame thickness */
+  --rim: 6px;      /* thin inner fillet */
+  --gold1: #7a5316;
+  --gold2: #b8872a;
+  --gold3: #d6b25a;
+  --gold4: #fff2b0;
+
+  position: relative;
+  display: block;
+  padding: var(--frame);            /* this becomes the visible frame width */
+  border-radius: 0;                 /* set >0 if you want rounded frame corners */
+  background:
+    /* base gilded gradient with a bit of bevel */
+    linear-gradient(135deg, var(--gold1), var(--gold2) 30%, var(--gold4) 60%, var(--gold2) 80%, var(--gold1)) border-box;
+  box-shadow:
+    0 20px 45px rgba(0,0,0,.35),    /* outer drop shadow */
+    inset 0 2px 0 rgba(255,255,255,.35),
+    inset 0 -2px 0 rgba(0,0,0,.25);
+
+  /* subtle ribbing/grooves on the frame */
+  background-image:
+    linear-gradient(135deg, var(--gold1), var(--gold2) 30%, var(--gold4) 60%, var(--gold2) 80%, var(--gold1)),
+    repeating-linear-gradient(90deg, rgba(255,255,255,.25) 0 2px, rgba(0,0,0,.12) 2px 4px);
+  background-clip: padding-box, border-box;
+}
+
+/* Inner fillet (thin shiny ring) 
+.frame-gold::before {
+  content: "";
+  position: absolute;
+  inset: calc(var(--frame) - var(--rim));
+  border-radius: inherit;
+  background: conic-gradient(from 45deg, var(--gold4), var(--gold3), var(--gold2), var(--gold4));
+
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  padding: 1px;
+  pointer-events: none;
+  opacity: .9;
+} */
+
+/* The image/content inside the frame */
+.frame-gold > img,
+.frame-gold > picture,
+.frame-gold > a > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* great with your 4:3 boxes */
+  border-radius: 0;
+}
+
+/* Optional: a white mat inside the frame */
+.frame-gold--mat {
+  background-color: #000000; /* visible in the padding area if you add extra padding */
+}
+.frame-gold--mat > img { box-shadow: 0 0 0 8px #000 inset; }
+.frame-gold--thumb { --frame: 3px; }
+
+/* Red "sold" dot */
+.frame-gold { --badge: 12px; }                /* this is the default dot size */
+.frame-gold.is-sold::after {
+  content: "";
+  position: absolute;
+  top: 20px;                                   /* move inward if you prefer: calc(var(--frame) + 4px) */
+  right: 20px;
+  width: var(--badge);
+  height: var(--badge);
+  border-radius: 50%;
+  background: #e11900;                        /* red */
+  box-shadow:
+    0 0 0 2px #fff,                           /* white ring for contrast */
+    0 2px 6px rgba(0,0,0,.35);                /* drop shadow */
+  z-index: 5;
+}
+
+/* slightly larger dot on the hero */
+.home-hero.frame-gold { --badge: 14px; }
+
+
