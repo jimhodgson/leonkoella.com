@@ -87,7 +87,7 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
 .nav a.active { font-weight: 600; border-bottom: 2px solid currentColor; }
 .nav-toggle { justify-self: end; display: none; background: none; border: 0; font-size: 1.25rem; line-height: 1; }
 
-@media (max-width: 800px) {
+@media (max-width: 1080px) {
   .nav { position: fixed; left: 0; right: 0; top: var(--header-h); display: none; background: var(--bg); }
   .nav.is-open { display: block; }
   .nav ul { flex-direction: column; align-items: center; }
@@ -107,6 +107,11 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
   max-height: 80vh;
   margin: 0 0 2rem;
   overflow: hidden;
+}
+@media (max-width: 1080px) {
+  .home-hero {
+    max-height: fit-content;
+  }
 }
 .home-hero img {
   position: static; 
@@ -190,7 +195,7 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
 .foot-meta { text-align: right;}
 .foot-nav { text-align: center;}
 
-@media (max-width: 800px) {
+@media (max-width: 1300px) {
   .footer-grid { grid-template-columns: 1fr; }
   .site-footer {
     padding: 5px;
@@ -239,7 +244,7 @@ th, td { text-align: left; border-bottom: var(--border); padding: .5rem .6rem; }
   background-clip: padding-box, border-box;
 }
 
-@media (max-width: 800px) { /* frame is smaller on mobile */
+@media (max-width: 1080px) { /* frame is smaller on mobile */
   .frame-gold {
     --frame: 3px;
   }

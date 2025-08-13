@@ -55,5 +55,4 @@ nav:
   - title: home
     url: /
   - title: about
-    url: #
-
+    url: /about
