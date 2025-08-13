@@ -1,6 +1,5 @@
 ---
 ---
-
 @import url('https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap');
 
 /* =========================
@@ -72,6 +71,11 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
 
 .brand { text-align: center;
   font-weight: 700; text-decoration: none; color: inherit;  font-size: 3em;}
+@media (max-width: 800px) {
+  .brand {
+    font-size: 2em;
+  }
+}
 .nav   { justify-self: center; }
 .nav ul { 
  margin-block: 0;
@@ -166,7 +170,7 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
    ========================= */
 .post-header { margin-bottom: 1rem; }
 .post-header .post-title { margin: 0 0 .25rem; }
-.post-meta { color: var(--muted); font-size: .95rem; }
+.post-meta { color: var(--muted); font-size: .95rem;}
 .post-content img { border-radius: 12px; }
 
 /* =========================
@@ -183,9 +187,17 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
 .foot-nav a, .social a { text-decoration: none; opacity: .85; }
 .foot-nav a:hover, .social a:hover { opacity: 1; }
 .to-top { display: inline-block; margin-top: .5rem; font-size: .9rem; }
+.foot-meta { text-align: right;}
+.foot-nav { text-align: center;}
 
 @media (max-width: 800px) {
   .footer-grid { grid-template-columns: 1fr; }
+  .site-footer {
+    padding: 5px;
+  }
+  .foot-meta { text-align: center;}
+  .foot-nav { text-align: center;}
+  .foot-brand { text-align: center;}
 }
 
 /* =========================
@@ -230,6 +242,9 @@ th, td { text-align: left; border-bottom: var(--border); padding: .5rem .6rem; }
 @media (max-width: 800px) { /* frame is smaller on mobile */
   .frame-gold {
     --frame: 3px;
+  }
+  .home-hero img {
+    padding: 1px;
   }
 }
 
