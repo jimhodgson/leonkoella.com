@@ -291,4 +291,8 @@ th, td { text-align: left; border-bottom: var(--border); padding: .5rem .6rem; }
 /* slightly larger dot on the hero */
 .home-hero.frame-gold { --badge: 14px; }
 
-
+.ml-embedded { margin-top: 10px; }
+.mailinglist { 
+  margin: 100px 0 0 0;
+  text-align: center;}
+.mailinglist h1 { margin: 0 auto;}
