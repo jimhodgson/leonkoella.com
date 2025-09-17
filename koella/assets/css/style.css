@@ -276,8 +276,8 @@ th, td { text-align: left; border-bottom: var(--border); padding: .5rem .6rem; }
 .frame-gold.is-sold::after {
   content: "";
   position: absolute;
-  top: 20px;                                   /* move inward if you prefer: calc(var(--frame) + 4px) */
-  right: 20px;
+  top: 10px;                                   /* move inward if you prefer: calc(var(--frame) + 4px) */
+  right: 10px;
   width: var(--badge);
   height: var(--badge);
   border-radius: 50%;

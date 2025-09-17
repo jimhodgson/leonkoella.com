@@ -36,8 +36,7 @@ slice: 1, posts_with_img.size -%}
   <p>{{ site.description }}</p>
   {% endif %} {% if rest and rest.size > 0 %}
   <div class="home-grid">
-    {% for post in rest limit:12 %} {% assign sold = (post.Sold == true or
-    post.Sold == "true" or post.Sold == 1 or post.Sold == "1") %}
+    {% for post in rest limit:12 %} {% assign sold = (post.sold == true) %}
     <article class="home-card">
       <a
         class="frame-gold frame-gold--mat frame-gold--thumb {% if sold %}is-sold{% endif %}"
