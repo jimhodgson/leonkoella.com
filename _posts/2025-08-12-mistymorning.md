@@ -6,7 +6,7 @@ format: "Oil on hardboard."
 size: '8"x10"'
 date: 2025-08-11 21:10:04 -0400
 categories: "8x10"
-sold: false
+sold: true
 featured_image: "/assets/images/mistymorning.jpg"
 ---
 

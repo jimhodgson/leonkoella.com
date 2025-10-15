@@ -6,7 +6,7 @@ format: Oil on cradled hardboard.
 size: 16"x20"
 date: 2025-07-01 08:31:13 -0400
 categories: 16x20
-sold: false
+sold: true
 featured_image: /assets/images/ppskyline.jpg
 ---
 
