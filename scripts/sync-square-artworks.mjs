@@ -120,6 +120,7 @@ async function main() {
   await fs.mkdir("_data", { recursive: true });
   await fs.writeFile("_data/artworks.json", JSON.stringify(artworks, null, 2));
   console.log(`Wrote ${artworks.length} artworks to _data/artworks.json`);
+  // Didn't see anything written to console? 
 }
 
 main().catch((e) => {
