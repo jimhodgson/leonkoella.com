@@ -1,5 +1,43 @@
 [
   {
+    "id": "ETB2OKMWJGKIQ5CXDTPQHCD4",
+    "name": "Winter Coo",
+    "description": "A winter's day in western Georgia and a curious friend. 16\"x20\" oil on creadled hardboard. \n\n\"Winter Coo\" was accepted to Suwanee Arts Center's Harvest show.",
+    "price_money": {
+      "amount": 32000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/7a686e0d007cfd0d1066b53d17bec4e5178b96ef/original.jpeg"
+    ],
+    "url": null,
+    "sold": false,
+    "categories": [
+      "studio"
+    ],
+    "category": "studio",
+    "updated_at": "2025-11-24T18:42:29.452Z"
+  },
+  {
+    "id": "MLER7SBU66JRBFFTA2CPCPYN",
+    "name": "Monschau House",
+    "description": "A peaceful day in the hills over a German village. 30\"x40\" oil on cradled hardboard.",
+    "price_money": {
+      "amount": 120000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/e739b8a0514b6461ce14f3d0dadc2ad6bdc962fc/original.jpeg"
+    ],
+    "url": null,
+    "sold": false,
+    "categories": [
+      "studio"
+    ],
+    "category": "studio",
+    "updated_at": "2025-11-24T18:40:26.997Z"
+  },
+  {
     "id": "X3STIDQCSMJUZVRIMGKXT7IS",
     "name": "ABG Plein Air 10.24.24",
     "description": "Atlanta Botanical Garden plein air painting from October 24th, 2024. 16\"x20\" on hardboard panel.",
@@ -14,6 +52,10 @@
     ],
     "url": null,
     "sold": false,
+    "categories": [
+      "plein air"
+    ],
+    "category": "plein air",
     "updated_at": "2025-11-24T13:28:04.813Z"
   },
   {
@@ -30,6 +72,10 @@
     ],
     "url": null,
     "sold": false,
+    "categories": [
+      "studio"
+    ],
+    "category": "studio",
     "updated_at": "2025-11-24T13:22:53.154Z"
   }
 ]
