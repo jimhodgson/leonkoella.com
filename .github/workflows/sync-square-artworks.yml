@@ -30,6 +30,7 @@ jobs:
         env:
           SQUARE_ACCESS_TOKEN: ${{ secrets.SQUARE_ACCESS_TOKEN }}
           SQUARE_VERSION: ${{ secrets.SQUARE_VERSION }}
+          SQUARE_STORE_DOMAIN: ${{ secrets.SQUARE_STORE_DOMAIN }}
         run: |
           node scripts/sync-square-artworks.mjs
 
