@@ -110,6 +110,27 @@ function getCategoryIdsForItem(item) {
   return [...new Set(ids)];
 }
 
+function buildPermalink(item, domain) {
+  const seoPermalink = item?.ecom_seo_data?.permalink;
+
+  if (!seoPermalink) return null;
+
+  // Full URL already
+  if (/^https?:\/\//i.test(seoPermalink)) return seoPermalink;
+
+  // Domain required to make a public URL
+  if (!domain) return seoPermalink; // return raw slug/path if domain not provided
+
+  // If permalink starts with "/", it's already a path
+  if (seoPermalink.startsWith("/")) {
+    return `https://${domain}${seoPermalink}`;
+  }
+
+  // Otherwise assume it's a slug and Square uses /products/<slug>
+  return `https://${domain}/products/${seoPermalink}`;
+}
+
+
 async function main() {
   const objects = await listAllItemsAndCategories();
 
@@ -144,18 +165,23 @@ async function main() {
     const categories = [...new Set(categoryNames)]
       .map(n => n.trim().toLowerCase());
 
+    const domain = process.env.SQUARE_STORE_DOMAIN; 
+
+    const permalink = buildPermalink(item, domain);
+
     return {
-      id: o.id,
-      name: item.name,
-      description: item.description_plaintext || item.description || "",
-      price_money,
-      images,
-      url: item.ecom_uri || null,
-      sold: isSold(o),
-      categories,                 // e.g. ["studio"] or ["plein air"]
-      category: categories[0] || null,
-      updated_at: o.updated_at || null,
+    id: o.id,
+    name: item.name,
+    description: item.description_plaintext || item.description || "",
+    price_money,
+    images,
+    url: permalink || item.ecom_uri || null,
+    sold: isSold(o),
+    categories,
+    category: categories[0] || null,
+    updated_at: o.updated_at || null,
     };
+
   });
 
   // Sort newest first
