@@ -1,0 +1,46 @@
+name: Sync Square Artworks
+
+on:
+  workflow_dispatch: {} # lets you run it manually from the Actions tab
+  schedule:
+    - cron: "17 7 * * *" # every day at 07:17 UTC (pick any time you want)
+  push:
+    paths:
+      - "scripts/sync-square-artworks.mjs" # re-sync whenever the script changes
+
+permissions:
+  contents: write # required to push commits back to repo
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Sync artworks from Square
+        env:
+          SQUARE_ACCESS_TOKEN: ${{ secrets.SQUARE_ACCESS_TOKEN }}
+          SQUARE_VERSION: ${{ secrets.SQUARE_VERSION }}
+        run: |
+          node scripts/sync-square-artworks.mjs
+
+      - name: Commit changes (if any)
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git config user.name "square-sync-bot"
+          git config user.email "square-sync-bot@users.noreply.github.com"
+          git add _data/artworks.json
+          git commit -m "Sync artworks from Square [skip ci]"
+          git push
