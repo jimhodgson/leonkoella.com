@@ -1,33 +1,15 @@
 [
   {
-    "id": "ETB2OKMWJGKIQ5CXDTPQHCD4",
-    "name": "Winter Coo",
-    "description": "A winter's day in western Georgia and a curious friend. 16\"x20\" oil on creadled hardboard. \n\n\"Winter Coo\" was accepted to Suwanee Arts Center's Harvest show.",
-    "price_money": {
-      "amount": 32000,
-      "currency": "USD"
-    },
-    "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/7a686e0d007cfd0d1066b53d17bec4e5178b96ef/original.jpeg"
-    ],
-    "url": null,
-    "sold": false,
-    "categories": [
-      "studio"
-    ],
-    "category": "studio",
-    "updated_at": "2025-11-24T18:42:29.452Z"
-  },
-  {
-    "id": "MLER7SBU66JRBFFTA2CPCPYN",
-    "name": "Monschau House",
-    "description": "A peaceful day in the hills over a German village. 30\"x40\" oil on cradled hardboard.",
+    "id": "WPVKLUJXYPWOACMMKIHV7N7E",
+    "name": "Park Drive Bridge",
+    "description": "\"A quiet tribute to reclaimed space, Park Drive Bridge captures one of the rare city spots where cars give way to people—above and below. With its graceful arches and red accents, the bridge offers shade, serenity, and a moment of stillness in the urban rhythm. Leon Koella’s brushwork invites viewers to walk the curved path beneath, feel the cool air, and reflect on the beauty of shared public spaces.\" -- Suwanee Arts Center\nBest in Show, Harvest Exhibit",
     "price_money": {
       "amount": 120000,
       "currency": "USD"
     },
     "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/e739b8a0514b6461ce14f3d0dadc2ad6bdc962fc/original.jpeg"
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/2c16bc4f63b7d4052b7a212a54d5a5837b9280c7/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/8e5c2174e81cb2ec5864ad5ffac1e6b7e7f7fbdb/original.jpeg"
     ],
     "url": null,
     "sold": false,
@@ -35,7 +17,8 @@
       "studio"
     ],
     "category": "studio",
-    "updated_at": "2025-11-24T18:40:26.997Z"
+    "updated_at": "2025-11-24T19:47:30.987Z",
+    "ecom_short_id": null
   },
   {
     "id": "X3STIDQCSMJUZVRIMGKXT7IS",
@@ -56,19 +39,19 @@
       "plein air"
     ],
     "category": "plein air",
-    "updated_at": "2025-11-24T13:28:04.813Z"
+    "updated_at": "2025-11-24T19:47:30.987Z",
+    "ecom_short_id": null
   },
   {
-    "id": "WPVKLUJXYPWOACMMKIHV7N7E",
-    "name": "Park Drive Bridge",
-    "description": "\"A quiet tribute to reclaimed space, Park Drive Bridge captures one of the rare city spots where cars give way to people—above and below. With its graceful arches and red accents, the bridge offers shade, serenity, and a moment of stillness in the urban rhythm. Leon Koella’s brushwork invites viewers to walk the curved path beneath, feel the cool air, and reflect on the beauty of shared public spaces.\" -- Suwanee Arts Center\nBest in Show, Harvest Exhibit",
+    "id": "MLER7SBU66JRBFFTA2CPCPYN",
+    "name": "Monschau House",
+    "description": "A peaceful day in the hills over a German village. 30\"x40\" oil on cradled hardboard.",
     "price_money": {
       "amount": 120000,
       "currency": "USD"
     },
     "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/2c16bc4f63b7d4052b7a212a54d5a5837b9280c7/original.jpeg",
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/8e5c2174e81cb2ec5864ad5ffac1e6b7e7f7fbdb/original.jpeg"
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/e739b8a0514b6461ce14f3d0dadc2ad6bdc962fc/original.jpeg"
     ],
     "url": null,
     "sold": false,
@@ -76,6 +59,27 @@
       "studio"
     ],
     "category": "studio",
-    "updated_at": "2025-11-24T13:22:53.154Z"
+    "updated_at": "2025-11-24T19:47:30.987Z",
+    "ecom_short_id": null
+  },
+  {
+    "id": "ETB2OKMWJGKIQ5CXDTPQHCD4",
+    "name": "Winter Coo",
+    "description": "A winter's day in western Georgia and a curious friend. 16\"x20\" oil on creadled hardboard. \n\n\"Winter Coo\" was accepted to Suwanee Arts Center's Harvest show.",
+    "price_money": {
+      "amount": 32000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/7a686e0d007cfd0d1066b53d17bec4e5178b96ef/original.jpeg"
+    ],
+    "url": null,
+    "sold": false,
+    "categories": [
+      "studio"
+    ],
+    "category": "studio",
+    "updated_at": "2025-11-24T19:47:30.987Z",
+    "ecom_short_id": null
   }
 ]
