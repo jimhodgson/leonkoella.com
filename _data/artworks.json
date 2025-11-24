@@ -1,0 +1,35 @@
+[
+  {
+    "id": "X3STIDQCSMJUZVRIMGKXT7IS",
+    "name": "ABG Plein Air 10.24.24",
+    "description": "Atlanta Botanical Garden plein air painting from October 24th, 2024. 16\"x20\" on hardboard panel.",
+    "price_money": {
+      "amount": 32000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/e558f797b49d38593c5ad9c5e5ed51b1476fa49e/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/644ee8a76ae9a07fe5963522f10f15613303264e/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/dfb4df1d2ed74157fef963885789fbbf64aa1dc9/original.jpeg"
+    ],
+    "url": null,
+    "sold": false,
+    "updated_at": "2025-11-24T13:28:04.813Z"
+  },
+  {
+    "id": "WPVKLUJXYPWOACMMKIHV7N7E",
+    "name": "Park Drive Bridge",
+    "description": "\"A quiet tribute to reclaimed space, Park Drive Bridge captures one of the rare city spots where cars give way to people—above and below. With its graceful arches and red accents, the bridge offers shade, serenity, and a moment of stillness in the urban rhythm. Leon Koella’s brushwork invites viewers to walk the curved path beneath, feel the cool air, and reflect on the beauty of shared public spaces.\" -- Suwanee Arts Center\nBest in Show, Harvest Exhibit",
+    "price_money": {
+      "amount": 120000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/2c16bc4f63b7d4052b7a212a54d5a5837b9280c7/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/8e5c2174e81cb2ec5864ad5ffac1e6b7e7f7fbdb/original.jpeg"
+    ],
+    "url": null,
+    "sold": false,
+    "updated_at": "2025-11-24T13:22:53.154Z"
+  }
+]
