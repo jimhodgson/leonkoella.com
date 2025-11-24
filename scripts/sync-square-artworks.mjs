@@ -27,21 +27,24 @@ async function squareFetch(path, { method = "GET", body } = {}) {
   return res.json();
 }
 
-// 1) List all catalog ITEMs (products)
-async function listAllItems() {
+// List all catalog objects we care about.
+// We'll ask for ITEM + CATEGORY in the same stream so we can map IDs -> names.
+async function listAllItemsAndCategories() {
   let cursor = null;
-  const items = [];
+  const objects = [];
   do {
-    const q = new URLSearchParams({ types: "ITEM" });
+    const q = new URLSearchParams({ types: "ITEM,CATEGORY" });
     if (cursor) q.set("cursor", cursor);
+
     const data = await squareFetch(`/v2/catalog/list?${q.toString()}`);
-    items.push(...(data.objects || []));
+    objects.push(...(data.objects || []));
     cursor = data.cursor || null;
   } while (cursor);
-  return items;
+
+  return objects;
 }
 
-// 2) Batch-retrieve images to get real URLs
+// Batch-retrieve images to get real URLs
 async function fetchImagesById(imageIds) {
   if (imageIds.length === 0) return {};
   const chunks = [];
@@ -70,18 +73,50 @@ function moneyToSimple(m) {
 }
 
 function isSold(itemObj) {
-  // CHANGE THIS to match your "sold" rule.
-  // Some options:
-  // 1) inventory 0 (if you track inventory)
-  // 2) category name "Sold"
-  // 3) custom attribute
+  // TODO: wire to your real rule if/when needed.
   return false;
 }
 
-async function main() {
-  const rawItems = await listAllItems();
+function buildCategoryMap(objects) {
+  const map = {};
+  for (const o of objects) {
+    if (o.type === "CATEGORY" && o.category_data?.name) {
+      map[o.id] = o.category_data.name;
+    }
+  }
+  return map;
+}
 
-  // Collect all image IDs referenced on items
+function getCategoryIdsForItem(item) {
+  const ids = [];
+
+  // Primary categories list (your response shape)
+  if (Array.isArray(item.categories)) {
+    for (const c of item.categories) {
+      if (c?.id) ids.push(c.id);
+    }
+  }
+
+  // Reporting category often mirrors the first category
+  if (item.reporting_category?.id) {
+    ids.push(item.reporting_category.id);
+  }
+
+  // Some accounts still provide category_id (older field)
+  if (item.category_id) {
+    ids.push(item.category_id);
+  }
+
+  return [...new Set(ids)];
+}
+
+async function main() {
+  const objects = await listAllItemsAndCategories();
+
+  const rawItems = objects.filter(o => o.type === "ITEM");
+  const categoryMap = buildCategoryMap(objects);
+
+  // --- images pass ---
   const allImageIds = [];
   for (const o of rawItems) {
     const ids = o.item_data?.image_ids || [];
@@ -90,7 +125,6 @@ async function main() {
   const uniqueImageIds = [...new Set(allImageIds)];
   const imageMap = await fetchImagesById(uniqueImageIds);
 
-  // Shape a public, Jekyll-friendly dataset
   const artworks = rawItems.map((o) => {
     const item = o.item_data || {};
     const variations = item.variations || [];
@@ -101,26 +135,37 @@ async function main() {
       .map((id) => imageMap[id])
       .filter(Boolean);
 
+    // Resolve category IDs -> names using the map from same response
+    const catIds = getCategoryIdsForItem(item);
+    const categoryNames = catIds
+      .map(id => categoryMap[id])
+      .filter(Boolean);
+
+    const categories = [...new Set(categoryNames)]
+      .map(n => n.trim().toLowerCase());
+
     return {
       id: o.id,
       name: item.name,
-      description: item.description || "",
+      description: item.description_plaintext || item.description || "",
       price_money,
       images,
-      url: item.ecom_uri || null, // if present on your account
+      url: item.ecom_uri || null,
       sold: isSold(o),
-      // optional for sorting:
+      categories,                 // e.g. ["studio"] or ["plein air"]
+      category: categories[0] || null,
       updated_at: o.updated_at || null,
     };
   });
 
-  // Sort newest first if you want:
-  artworks.sort((a, b) => (b.updated_at || "").localeCompare(a.updated_at || ""));
+  // Sort newest first
+  artworks.sort((a, b) =>
+    (b.updated_at || "").localeCompare(a.updated_at || "")
+  );
 
   await fs.mkdir("_data", { recursive: true });
   await fs.writeFile("_data/artworks.json", JSON.stringify(artworks, null, 2));
   console.log(`Wrote ${artworks.length} artworks to _data/artworks.json`);
-  // Didn't see anything written to console? 
 }
 
 main().catch((e) => {
