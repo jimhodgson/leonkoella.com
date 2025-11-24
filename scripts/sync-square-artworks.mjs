@@ -74,18 +74,33 @@ async function fetchImagesById(imageIds) {
 
 // Fetch custom attributes for a single item and return ecom_short_id (if any)
 async function fetchEcomShortId(itemId) {
-  const data = await squareFetch(
-    `/v2/catalog/object/${itemId}/custom-attributes`
-  );
-  const attrs = data.custom_attributes || [];
+  try {
+    const data = await squareFetch(
+      `/v2/catalog/object/${itemId}/custom-attributes`
+    );
+    const attrs = data.custom_attributes || [];
 
-  for (const a of attrs) {
-    if (a.key === "ecom_short_id" && a.value) {
-      return a.value; // usually a short slug-like id
+    for (const a of attrs) {
+      if (a.key === "ecom_short_id" && a.value) {
+        return a.value;
+      }
     }
+    return null;
+  } catch (err) {
+    // squareFetch throws Error("Square error 404: ...")
+    const msg = String(err?.message || err);
+
+    if (msg.includes("Square error 404")) {
+      // No custom attrs for this item (or Square doesn't expose them).
+      console.warn(`[ecom_short_id] none for item ${itemId} (404)`);
+      return null;
+    }
+
+    // Any other error should still surface
+    throw err;
   }
-  return null;
 }
+
 
 // Fetch short ids for many items (parallel, fine for small catalogs)
 async function fetchAllShortIds(itemIds) {
