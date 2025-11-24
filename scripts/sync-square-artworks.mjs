@@ -1,6 +1,7 @@
 // scripts/sync-square-artworks.mjs
 import fs from "fs/promises";
 
+//comment
 const ACCESS_TOKEN = process.env.SQUARE_ACCESS_TOKEN;
 const SQUARE_VERSION = process.env.SQUARE_VERSION || "2024-05-15";
 const STORE_DOMAIN = process.env.SQUARE_STORE_DOMAIN; // e.g. leonkoella.square.site
