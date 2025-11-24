@@ -3,10 +3,15 @@ import fs from "fs/promises";
 
 const ACCESS_TOKEN = process.env.SQUARE_ACCESS_TOKEN;
 const SQUARE_VERSION = process.env.SQUARE_VERSION || "2024-05-15";
+const STORE_DOMAIN = process.env.SQUARE_STORE_DOMAIN; // e.g. leonkoella.square.site
 const BASE = "https://connect.squareup.com";
 
 if (!ACCESS_TOKEN) {
   console.error("Missing SQUARE_ACCESS_TOKEN in env");
+  process.exit(1);
+}
+if (!STORE_DOMAIN) {
+  console.error("Missing SQUARE_STORE_DOMAIN in env");
   process.exit(1);
 }
 
@@ -27,8 +32,7 @@ async function squareFetch(path, { method = "GET", body } = {}) {
   return res.json();
 }
 
-// List all catalog objects we care about.
-// We'll ask for ITEM + CATEGORY in the same stream so we can map IDs -> names.
+// List ITEM + CATEGORY so we can map category ids -> names
 async function listAllItemsAndCategories() {
   let cursor = null;
   const objects = [];
@@ -67,13 +71,36 @@ async function fetchImagesById(imageIds) {
   return idToUrl;
 }
 
+// Fetch custom attributes for a single item and return ecom_short_id (if any)
+async function fetchEcomShortId(itemId) {
+  const data = await squareFetch(
+    `/v2/catalog/object/${itemId}/custom-attributes`
+  );
+  const attrs = data.custom_attributes || [];
+
+  for (const a of attrs) {
+    if (a.key === "ecom_short_id" && a.value) {
+      return a.value; // usually a short slug-like id
+    }
+  }
+  return null;
+}
+
+// Fetch short ids for many items (parallel, fine for small catalogs)
+async function fetchAllShortIds(itemIds) {
+  const pairs = await Promise.all(
+    itemIds.map(async (id) => [id, await fetchEcomShortId(id)])
+  );
+  return Object.fromEntries(pairs);
+}
+
 function moneyToSimple(m) {
   if (!m || typeof m.amount !== "number") return null;
   return { amount: m.amount, currency: m.currency || "USD" };
 }
 
 function isSold(itemObj) {
-  // TODO: wire to your real rule if/when needed.
+  // TODO: wire to your real sold rule if you want later.
   return false;
 }
 
@@ -90,51 +117,20 @@ function buildCategoryMap(objects) {
 function getCategoryIdsForItem(item) {
   const ids = [];
 
-  // Primary categories list (your response shape)
   if (Array.isArray(item.categories)) {
     for (const c of item.categories) {
       if (c?.id) ids.push(c.id);
     }
   }
-
-  // Reporting category often mirrors the first category
-  if (item.reporting_category?.id) {
-    ids.push(item.reporting_category.id);
-  }
-
-  // Some accounts still provide category_id (older field)
-  if (item.category_id) {
-    ids.push(item.category_id);
-  }
+  if (item.reporting_category?.id) ids.push(item.reporting_category.id);
+  if (item.category_id) ids.push(item.category_id);
 
   return [...new Set(ids)];
 }
 
-function buildPermalink(item, domain) {
-  const seoPermalink = item?.ecom_seo_data?.permalink;
-
-  if (!seoPermalink) return null;
-
-  // Full URL already
-  if (/^https?:\/\//i.test(seoPermalink)) return seoPermalink;
-
-  // Domain required to make a public URL
-  if (!domain) return seoPermalink; // return raw slug/path if domain not provided
-
-  // If permalink starts with "/", it's already a path
-  if (seoPermalink.startsWith("/")) {
-    return `https://${domain}${seoPermalink}`;
-  }
-
-  // Otherwise assume it's a slug and Square uses /products/<slug>
-  return `https://${domain}/products/${seoPermalink}`;
-}
-
-
 async function main() {
   const objects = await listAllItemsAndCategories();
-
-  const rawItems = objects.filter(o => o.type === "ITEM");
+  const rawItems = objects.filter((o) => o.type === "ITEM");
   const categoryMap = buildCategoryMap(objects);
 
   // --- images pass ---
@@ -146,6 +142,9 @@ async function main() {
   const uniqueImageIds = [...new Set(allImageIds)];
   const imageMap = await fetchImagesById(uniqueImageIds);
 
+  // --- ecom_short_id pass ---
+  const shortIdMap = await fetchAllShortIds(rawItems.map((i) => i.id));
+
   const artworks = rawItems.map((o) => {
     const item = o.item_data || {};
     const variations = item.variations || [];
@@ -156,35 +155,34 @@ async function main() {
       .map((id) => imageMap[id])
       .filter(Boolean);
 
-    // Resolve category IDs -> names using the map from same response
     const catIds = getCategoryIdsForItem(item);
     const categoryNames = catIds
-      .map(id => categoryMap[id])
+      .map((id) => categoryMap[id])
       .filter(Boolean);
 
     const categories = [...new Set(categoryNames)]
-      .map(n => n.trim().toLowerCase());
+      .map((n) => n.trim().toLowerCase());
 
-    const domain = process.env.SQUARE_STORE_DOMAIN; 
-
-    const permalink = buildPermalink(item, domain);
+    const shortId = shortIdMap[o.id];
+    const url = shortId
+      ? `https://${STORE_DOMAIN}/products/${shortId}`
+      : null;
 
     return {
-    id: o.id,
-    name: item.name,
-    description: item.description_plaintext || item.description || "",
-    price_money,
-    images,
-    url: permalink || item.ecom_uri || null,
-    sold: isSold(o),
-    categories,
-    category: categories[0] || null,
-    updated_at: o.updated_at || null,
+      id: o.id,
+      name: item.name,
+      description: item.description_plaintext || item.description || "",
+      price_money,
+      images,
+      url,
+      sold: isSold(o),
+      categories,
+      category: categories[0] || null,
+      updated_at: o.updated_at || null,
+      ecom_short_id: shortId || null, // handy to keep for debugging
     };
-
   });
 
-  // Sort newest first
   artworks.sort((a, b) =>
     (b.updated_at || "").localeCompare(a.updated_at || "")
   );
