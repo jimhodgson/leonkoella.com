@@ -1,5 +1,65 @@
 [
   {
+    "id": "N3K2BUM3G7MSMBEIAAPSHOCJ",
+    "name": "Seaside Sundown",
+    "description": "The heat of the sun on the cliffs and on the buildings. Sand underfoot. 8\"x10\" oil on hardboard.",
+    "price_money": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/706e31377f4ae02ee8f230da1a18e59ade9c6853/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/seaside-sundown/N3K2BUM3G7MSMBEIAAPSHOCJ",
+    "sold": false,
+    "categories": [
+      "studio"
+    ],
+    "category": "studio",
+    "updated_at": "2025-11-25T21:49:03.682Z",
+    "hero": false
+  },
+  {
+    "id": "QRA3FV7XNSZHHOBQ4SFOCCKS",
+    "name": "Misty Morning",
+    "description": "A misty morning view to barely visible trees. 8\"x10\" oil on hardboard.",
+    "price_money": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/4e749301c118e199be4b7549739791a7e1fbb07e/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/misty-morning/QRA3FV7XNSZHHOBQ4SFOCCKS",
+    "sold": false,
+    "categories": [
+      "studio"
+    ],
+    "category": "studio",
+    "updated_at": "2025-11-25T21:48:02.893Z",
+    "hero": false
+  },
+  {
+    "id": "JAFXMIK5C7AQZX3GTCZ6BRH2",
+    "name": "Piedmont Park Skyline",
+    "description": "Looking toward midtown from across the pond in Piedmont Park. One of my favorite places to be. 16\"x20\" oil on cradled hardboard.",
+    "price_money": {
+      "amount": 32000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/0308b65888a145b71b6be5737ccc195c94137316/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/piedmont-park-skyline/JAFXMIK5C7AQZX3GTCZ6BRH2",
+    "sold": false,
+    "categories": [
+      "studio"
+    ],
+    "category": "studio",
+    "updated_at": "2025-11-25T21:46:47.478Z",
+    "hero": false
+  },
+  {
     "id": "TWFGFACT2H3XZ7FV2ANYZRBR",
     "name": "Swamp Rabbit Trail, Greenville SC, 11.15.25",
     "description": "The Swamp Rabbit Trail follows the Reedy River through downtown Greenville, SC, including the falls here under the Liberty Bridge. Fantastic weather. Friendly folks stopping to chat. Hard to beat. 8\"10\" oil on hardboard.",
