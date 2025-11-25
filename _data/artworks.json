@@ -1,26 +1,5 @@
 [
   {
-    "id": "PULNUXNCFS7TRWWPUJPEJ7LP",
-    "name": "Blue Ridge Fall Arts in the Park 10.11.25",
-    "description": "A plein air piece painted on Oct 11th 2025 at the Blue Ridge GA Fall Arts in the Park festival. 8\"x10\" oil on hardboard.",
-    "price_money": {
-      "amount": 10000,
-      "currency": "USD"
-    },
-    "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/47398e0aac2fb5dba91a6a6bdcbd5b7d67d3c9a4/original.jpeg",
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/b8bed5076cd92677d6ea19aa1451587906642aa5/original.jpeg"
-    ],
-    "url": "https://leonkoella.square.site/product/blue-ridge-fall-arts-in-the-park-10-11-25/PULNUXNCFS7TRWWPUJPEJ7LP",
-    "sold": false,
-    "categories": [
-      "plein air"
-    ],
-    "category": "plein air",
-    "updated_at": "2025-11-25T18:36:29.094Z",
-    "hero": false
-  },
-  {
     "id": "TWFGFACT2H3XZ7FV2ANYZRBR",
     "name": "Swamp Rabbit Trail, Greenville SC, 11.15.25",
     "description": "The Swamp Rabbit Trail follows the Reedy River through downtown Greenville, SC, including the falls here under the Liberty Bridge. Fantastic weather. Friendly folks stopping to chat. Hard to beat. 8\"10\" oil on hardboard.",
@@ -29,6 +8,7 @@
       "currency": "USD"
     },
     "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/bded8d14b81582fef0a71531916fabfa37363aca/original.jpeg",
       "https://items-images-production.s3.us-west-2.amazonaws.com/files/42760a6b46021159baece5d190fc7ad8f15de1ea/original.jpeg",
       "https://items-images-production.s3.us-west-2.amazonaws.com/files/3d9c7fb152babe383f6eb5479b30e6362f6c0bee/original.jpeg",
       "https://items-images-production.s3.us-west-2.amazonaws.com/files/906a5b61dbaccbcb2936b23b3f6a5bb65aab5b65/original.png"
@@ -39,7 +19,29 @@
       "plein air"
     ],
     "category": "plein air",
-    "updated_at": "2025-11-25T18:30:51.206Z",
+    "updated_at": "2025-11-25T21:32:28.799Z",
+    "hero": false
+  },
+  {
+    "id": "PULNUXNCFS7TRWWPUJPEJ7LP",
+    "name": "Blue Ridge Fall Arts in the Park 10.11.25",
+    "description": "A plein air piece painted on Oct 11th 2025 at the Blue Ridge GA Fall Arts in the Park festival. 8\"x10\" oil on hardboard.",
+    "price_money": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/9bc724c6e909664cd9cd9fd332214d8ceaf0c4a1/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/47398e0aac2fb5dba91a6a6bdcbd5b7d67d3c9a4/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/b8bed5076cd92677d6ea19aa1451587906642aa5/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/blue-ridge-fall-arts-in-the-park-10-11-25/PULNUXNCFS7TRWWPUJPEJ7LP",
+    "sold": false,
+    "categories": [
+      "plein air"
+    ],
+    "category": "plein air",
+    "updated_at": "2025-11-25T21:32:03.025Z",
     "hero": false
   },
   {
@@ -51,6 +53,7 @@
       "currency": "USD"
     },
     "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/29dde6d88284515636aeea0fd29fb6245ed2b42c/original.jpeg",
       "https://items-images-production.s3.us-west-2.amazonaws.com/files/40b5044c62b510598e009bf449d5e802936d5a72/original.jpeg",
       "https://items-images-production.s3.us-west-2.amazonaws.com/files/d08ebdcb14cc118aac426cec706c5950527e9ee5/original.jpeg"
     ],
@@ -60,7 +63,7 @@
       "plein air"
     ],
     "category": "plein air",
-    "updated_at": "2025-11-25T18:25:55.78Z",
+    "updated_at": "2025-11-25T21:31:41.853Z",
     "hero": false
   },
   {
