@@ -72,6 +72,41 @@ async function fetchImagesById(imageIds) {
   return idToUrl;
 }
 
+async function fetchFullItemsById(itemIds) {
+  const chunks = [];
+  for (let i = 0; i < itemIds.length; i += 100) {
+    chunks.push(itemIds.slice(i, i + 100));
+  }
+
+  const fullMap = {};
+  for (const chunk of chunks) {
+    const data = await squareFetch("/v2/catalog/batch-retrieve", {
+      method: "POST",
+      body: { object_ids: chunk },
+    });
+
+    for (const obj of data.objects || []) {
+      if (obj.type === "ITEM") fullMap[obj.id] = obj;
+    }
+  }
+
+  return fullMap;
+}
+
+function isHeroFromCustomAttributes(fullItem) {
+  const values = fullItem?.custom_attribute_values || {};
+  for (const key in values) {
+    const attr = values[key];
+    const name = attr?.name?.toLowerCase();
+    const val = attr?.string_value?.trim();
+
+    if ((name === "hero" || key.includes("hero")) && val === "1") {
+      return true;
+    }
+  }
+  return false;
+}
+
 function moneyToSimple(m) {
   if (!m || typeof m.amount !== "number") return null;
   return { amount: m.amount, currency: m.currency || "USD" };
@@ -121,6 +156,8 @@ async function main() {
   const objects = await listAllItemsAndCategories();
   const rawItems = objects.filter((o) => o.type === "ITEM");
   const categoryMap = buildCategoryMap(objects);
+  const fullItemMap = await fetchFullItemsById(rawItems.map(i => i.id));
+
 
   // --- images pass ---
   const allImageIds = [];
@@ -132,7 +169,12 @@ async function main() {
   const imageMap = await fetchImagesById(uniqueImageIds);
 
   const artworks = rawItems.map((o) => {
-    const item = o.item_data || {};
+    //const item = o.item_data || {};
+    //added when trying to add hero designation
+    const full = fullItemMap[o.id];
+    const item = full?.item_data || o.item_data || {};
+    const isHero = isHeroFromCustomAttributes(full);
+    //end of paste into this section
     const variations = item.variations || [];
     const firstVar = variations[0]?.item_variation_data || {};
     const price_money = moneyToSimple(firstVar.price_money);
@@ -166,6 +208,7 @@ async function main() {
       categories,
       category: categories[0] || null,
       updated_at: o.updated_at || null,
+      hero: isHero,
     };
   });
 

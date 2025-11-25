@@ -2,8 +2,9 @@
 layout: default
 ---
 
-{%- assign artworks = site.data.artworks | default: empty -%} {%- assign hero =
-artworks | first -%} {%- assign rest = artworks | slice: 1, artworks.size -%}
+{%- assign artworks = site.data.artworks | default: empty -%} {%- assign studio
+= artworks | where_exp: "a", "(a.category == 'studio')" -%} {%- assign hero =
+artworks | where: "hero", true | first -%}
 
 <div class="wrapper">
   {% if hero %}
