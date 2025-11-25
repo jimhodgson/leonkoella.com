@@ -99,42 +99,53 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
 /* =========================
    Home (hero + grid)
    ========================= */
-/* Hero: force 4:3 */
+/* Hero container – allow natural aspect ratio */
 .home-hero {
   display: block;           /* it's an <a> */
   position: relative;
-  aspect-ratio: 4 / 3;      /* width : height */
-  max-height: 80vh;
   margin: 0 0 2rem;
-  overflow: hidden;
+  max-height: 80vh;
+  overflow: hidden;         /* optional: clips if huge */
 }
+
+/* Hero image – keep aspect ratio, no squish */
+.home-hero img {
+  position: static;
+  width: 100%;
+  height: auto;             /* <-- the big change */
+  object-fit: contain;      /* show whole image inside frame */
+  padding: 5px;
+}
+
+/* Remove the old aspect-ratio fallback for hero */
+@supports not (aspect-ratio: 1) {
+  /* delete this block entirely:
+  .home-hero { height: 0; padding-top: 75%; }
+  */
+}
+
+.hero-text {
+  display: none;
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(transparent, rgba(0,0,0,.55));
+  color: #fff;
+}
+
+
 @media (max-width: 1080px) {
   .home-hero {
     max-height: fit-content;
   }
 }
-.home-hero img {
-  position: static; 
-  inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
-  padding: 5px;
-}
-.hero-text {
-  display: none;
-  position: absolute; inset: auto 0 0 0; padding: 1rem 1.25rem;
-  background: linear-gradient(transparent, rgba(0,0,0,.55)); color: #fff;
-}
+
 
 /* Fallback */
 @supports not (aspect-ratio: 1) {
   .home-hero { height: 0; padding-top: 75%; } /* 3/4 = 75% */
 }
 
-.home-hero {
-  position: absolute; inset: auto 0 0 0; padding: 1rem 1.25rem;
-  background: linear-gradient(transparent, rgba(0,0,0,.55)); color: #fff;
-}
 .home-hero h1 { margin: .25rem 0 .5rem; font-size: clamp(1.5rem, 3vw, 2.25rem); }
 
 .home-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
@@ -156,6 +167,7 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
 @supports not (aspect-ratio: 1) {
   .home-card > a { height: 0; padding-top: 75%; }
 }
+
 
 /* Make sure the title link stays normal */
 .home-card .meta .title a {
@@ -259,8 +271,8 @@ th, td { text-align: left; border-bottom: var(--border); padding: .5rem .6rem; }
 .frame-gold > a > img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover; /* great with your 4:3 boxes */
+  height: auto;             /* <-- let height follow the image */
+  object-fit: contain;      /* show whole painting within the frame */
   border-radius: 0;
 }
 
