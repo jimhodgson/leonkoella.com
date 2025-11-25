@@ -117,12 +117,6 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
   padding: 5px;
 }
 
-/* Remove the old aspect-ratio fallback for hero */
-@supports not (aspect-ratio: 1) {
-  /* delete this block entirely:
-  .home-hero { height: 0; padding-top: 75%; }
-  */
-}
 
 .hero-text {
   display: none;
@@ -140,34 +134,31 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
   }
 }
 
-
-/* Fallback */
-@supports not (aspect-ratio: 1) {
-  .home-hero { height: 0; padding-top: 75%; } /* 3/4 = 75% */
-}
-
 .home-hero h1 { margin: .25rem 0 .5rem; font-size: clamp(1.5rem, 3vw, 2.25rem); }
 
-.home-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
-/* Only the image link gets 4:3 */
+/* Thumbnails grid: same height, variable width per image */
+.home-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+/* Each card just wraps its content */
+.home-card {
+  flex: 0 0 auto;
+}
+
 .home-card > a {
   display: block;
-  position: relative;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
 }
+
+/* Core idea: every image gets the same height, width adjusts naturally */
 .home-card > a img {
-  position: static; inset: 0;
-  width: 100%; height: 100%;
-  object-fit: cover;
+  height: 220px; /* tweak this to taste (e.g. 200 / 240) */
+  width: auto;
   padding: 1px;
 }
-
-/* Fallback */
-@supports not (aspect-ratio: 1) {
-  .home-card > a { height: 0; padding-top: 75%; }
-}
-
 
 /* Make sure the title link stays normal */
 .home-card .meta .title a {
