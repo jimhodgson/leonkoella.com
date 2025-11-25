@@ -2,9 +2,9 @@
 layout: default
 ---
 
-{%- assign artworks = site.data.artworks | default: empty -%} {%- assign studio
-= artworks | where_exp: "a", "(a.category == 'studio')" -%} {%- assign hero =
-artworks | where: "hero", true | first -%}
+{%- assign artworks = site.data.artworks | default: empty -%} {%- assign hero =
+nil -%} {%- for art in artworks -%} {%- if art.hero == true -%} {%- assign hero
+= art -%} {%- break -%} {%- endif -%} {%- endfor -%}
 
 <div class="wrapper">
   {% if hero %}
@@ -39,9 +39,11 @@ artworks | where: "hero", true | first -%}
   <h1>{{ site.title }}</h1>
   <p>{{ site.description }}</p>
   <p><em>No artworks loaded yet.</em></p>
-  {% endif %} {% if rest and rest.size > 0 %}
+  {% endif %} {% if artworks and artworks.size > 0 %}
   <div class="home-grid">
-    {% for art in rest limit:12 %}
+    {% for art in artworks limit:12 %} {%- if hero and art.id == hero.id -%} {%-
+    continue -%} {%- endif -%}
+
     <article class="home-card">
       <a
         class="frame-gold frame-gold--mat frame-gold--thumb {% if art.sold %}is-sold{% endif %}"
@@ -61,7 +63,6 @@ artworks | where: "hero", true | first -%}
           loading="lazy"
         />
         {% else %}
-        <!-- optional placeholder so layout doesn't collapse -->
         <div style="aspect-ratio: 1/1"></div>
         {% endif %}
       </a>
