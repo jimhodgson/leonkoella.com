@@ -72,44 +72,6 @@ async function fetchImagesById(imageIds) {
   return idToUrl;
 }
 
-// Fetch custom attributes for a single item and return ecom_short_id (if any)
-async function fetchEcomShortId(itemId) {
-  try {
-    const data = await squareFetch(
-      `/v2/catalog/object/${itemId}/custom-attributes`
-    );
-    const attrs = data.custom_attributes || [];
-
-    for (const a of attrs) {
-      if (a.key === "ecom_short_id" && a.value) {
-        return a.value;
-      }
-    }
-    return null;
-  } catch (err) {
-    // squareFetch throws Error("Square error 404: ...")
-    const msg = String(err?.message || err);
-
-    if (msg.includes("Square error 404")) {
-      // No custom attrs for this item (or Square doesn't expose them).
-      console.warn(`[ecom_short_id] none for item ${itemId} (404)`);
-      return null;
-    }
-
-    // Any other error should still surface
-    throw err;
-  }
-}
-
-
-// Fetch short ids for many items (parallel, fine for small catalogs)
-async function fetchAllShortIds(itemIds) {
-  const pairs = await Promise.all(
-    itemIds.map(async (id) => [id, await fetchEcomShortId(id)])
-  );
-  return Object.fromEntries(pairs);
-}
-
 function moneyToSimple(m) {
   if (!m || typeof m.amount !== "number") return null;
   return { amount: m.amount, currency: m.currency || "USD" };
@@ -144,6 +106,17 @@ function getCategoryIdsForItem(item) {
   return [...new Set(ids)];
 }
 
+function slugifyName(name) {
+  if (!name) return "";
+  return name
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/['"]/g, "")        // remove quotes
+    .replace(/[^a-z0-9]+/g, "-") // replace non-alphanum with -
+    .replace(/^-+|-+$/g, "");    // trim leading/trailing -
+}
+
 async function main() {
   const objects = await listAllItemsAndCategories();
   const rawItems = objects.filter((o) => o.type === "ITEM");
@@ -157,9 +130,6 @@ async function main() {
   }
   const uniqueImageIds = [...new Set(allImageIds)];
   const imageMap = await fetchImagesById(uniqueImageIds);
-
-  // --- ecom_short_id pass ---
-  const shortIdMap = await fetchAllShortIds(rawItems.map((i) => i.id));
 
   const artworks = rawItems.map((o) => {
     const item = o.item_data || {};
@@ -179,10 +149,11 @@ async function main() {
     const categories = [...new Set(categoryNames)]
       .map((n) => n.trim().toLowerCase());
 
-    const shortId = shortIdMap[o.id];
-    const url = shortId
-      ? `https://${STORE_DOMAIN}/products/${shortId}`
-      : null;
+    const slug = slugifyName(item.name);
+    const url =
+    slug && STORE_DOMAIN
+        ? `https://${STORE_DOMAIN}/product/${slug}/${o.id}`
+        : null;
 
     return {
       id: o.id,
@@ -195,7 +166,6 @@ async function main() {
       categories,
       category: categories[0] || null,
       updated_at: o.updated_at || null,
-      ecom_short_id: shortId || null, // handy to keep for debugging
     };
   });
 

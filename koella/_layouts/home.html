@@ -2,72 +2,74 @@
 layout: default
 ---
 
-{%- assign posts_with_img = site.posts | where_exp: "p", "p.featured_image" -%}
-{%- assign hero = posts_with_img | first -%} {%- assign rest = posts_with_img |
-slice: 1, posts_with_img.size -%}
+{%- assign artworks = site.data.artworks | default: empty -%} {%- assign hero =
+artworks | first -%} {%- assign rest = artworks | slice: 1, artworks.size -%}
 
 <div class="wrapper">
-  {% if hero %} {% assign hero_sold = (hero.sold == true or hero.sold == "true"
-  or hero.sold == 1 or hero.sold == "1") %}
+  {% if hero %}
   <a
-    class="home-hero frame-gold frame-gold--mat {% if hero_sold %}is-sold{% endif %}"
-    href="{{ hero.url | relative_url }}"
+    class="home-hero frame-gold frame-gold--mat {% if hero.sold %}is-sold{% endif %}"
+    href="{{ hero.url | default: '#' }}"
     {%
     if
-    hero_sold
-    %}aria-label="Sold — {{ hero.title | escape }}"
+    hero.sold
+    %}aria-label="Sold — {{ hero.name | escape }}"
     {%
     endif
     %}
   >
+    {% if hero.images and hero.images[0] %}
     <img
-      src="{{ hero.featured_image | relative_url }}"
-      alt="{{ hero.featured_image_alt | default: hero.title | escape }}"
+      src="{{ hero.images[0] }}"
+      alt="{{ hero.name | escape }}"
       loading="eager"
       fetchpriority="high"
     />
+    {% endif %}
+
     <div class="hero-text">
-      <h1>{{ hero.title }}</h1>
-      <p>{{ hero.excerpt | strip_html | truncate: 160 }}</p>
+      <h1>{{ hero.name }}</h1>
+      {% if hero.description %}
+      <p>{{ hero.description | strip_html | truncate: 160 }}</p>
+      {% endif %}
     </div>
   </a>
   {% else %}
   <h1>{{ site.title }}</h1>
   <p>{{ site.description }}</p>
+  <p><em>No artworks loaded yet.</em></p>
   {% endif %} {% if rest and rest.size > 0 %}
   <div class="home-grid">
-    {% for post in rest limit:12 %} {% assign sold = (post.sold == true) %}
+    {% for art in rest limit:12 %}
     <article class="home-card">
       <a
-        class="frame-gold frame-gold--mat frame-gold--thumb {% if sold %}is-sold{% endif %}"
-        href="{{ post.url | relative_url }}"
+        class="frame-gold frame-gold--mat frame-gold--thumb {% if art.sold %}is-sold{% endif %}"
+        href="{{ art.url | default: '#' }}"
         {%
         if
-        sold
-        %}aria-label="Sold — {{ post.title | escape }}"
+        art.sold
+        %}aria-label="Sold — {{ art.name | escape }}"
         {%
         endif
         %}
       >
+        {% if art.images and art.images[0] %}
         <img
-          src="{{ post.featured_image | relative_url }}"
-          alt="{{ post.featured_image_alt | default: post.title | escape }}"
+          src="{{ art.images[0] }}"
+          alt="{{ art.name | escape }}"
           loading="lazy"
         />
+        {% else %}
+        <!-- optional placeholder so layout doesn't collapse -->
+        <div style="aspect-ratio: 1/1"></div>
+        {% endif %}
       </a>
-      {%- comment -%}
-      <div class="meta">
-        <h3 class="title">
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </h3>
-        <div class="date">{{ post.date | date: "%b %-d, %Y" }}</div>
-      </div>
-      {%- endcomment -%}
     </article>
     {% endfor %}
   </div>
   {% endif %}
 </div>
+
 <div class="mailinglist">
   <h1>Email Sign Up</h1>
   <div class="ml-embedded" data-form="Tjc1Bl"></div>
