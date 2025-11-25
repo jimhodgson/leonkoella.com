@@ -1,5 +1,25 @@
 [
   {
+    "id": "MLER7SBU66JRBFFTA2CPCPYN",
+    "name": "Monschau House",
+    "description": "A peaceful day in the hills over a German village. 30\"x40\" oil on cradled hardboard.",
+    "price_money": {
+      "amount": 120000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/e739b8a0514b6461ce14f3d0dadc2ad6bdc962fc/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/monschau-house/MLER7SBU66JRBFFTA2CPCPYN",
+    "sold": false,
+    "categories": [
+      "studio"
+    ],
+    "category": "studio",
+    "updated_at": "2025-11-25T13:52:21.003Z",
+    "hero": true
+  },
+  {
     "id": "X3STIDQCSMJUZVRIMGKXT7IS",
     "name": "ABG Plein Air 10.24.24",
     "description": "Atlanta Botanical Garden plein air painting from October 24th, 2024. 16\"x20\" on hardboard panel.",
@@ -18,7 +38,8 @@
       "plein air"
     ],
     "category": "plein air",
-    "updated_at": "2025-11-25T12:32:21.98Z"
+    "updated_at": "2025-11-25T12:32:21.98Z",
+    "hero": false
   },
   {
     "id": "ETB2OKMWJGKIQ5CXDTPQHCD4",
@@ -37,7 +58,8 @@
       "studio"
     ],
     "category": "studio",
-    "updated_at": "2025-11-24T21:21:24.677Z"
+    "updated_at": "2025-11-24T21:21:24.677Z",
+    "hero": false
   },
   {
     "id": "WPVKLUJXYPWOACMMKIHV7N7E",
@@ -57,25 +79,7 @@
       "studio"
     ],
     "category": "studio",
-    "updated_at": "2025-11-24T19:47:30.987Z"
-  },
-  {
-    "id": "MLER7SBU66JRBFFTA2CPCPYN",
-    "name": "Monschau House",
-    "description": "A peaceful day in the hills over a German village. 30\"x40\" oil on cradled hardboard.",
-    "price_money": {
-      "amount": 120000,
-      "currency": "USD"
-    },
-    "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/e739b8a0514b6461ce14f3d0dadc2ad6bdc962fc/original.jpeg"
-    ],
-    "url": "https://leonkoella.square.site/product/monschau-house/MLER7SBU66JRBFFTA2CPCPYN",
-    "sold": false,
-    "categories": [
-      "studio"
-    ],
-    "category": "studio",
-    "updated_at": "2025-11-24T19:47:30.987Z"
+    "updated_at": "2025-11-24T19:47:30.987Z",
+    "hero": false
   }
 ]
