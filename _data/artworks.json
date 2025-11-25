@@ -1,5 +1,69 @@
 [
   {
+    "id": "PULNUXNCFS7TRWWPUJPEJ7LP",
+    "name": "Blue Ridge Fall Arts in the Park 10.11.25",
+    "description": "A plein air piece painted on Oct 11th 2025 at the Blue Ridge GA Fall Arts in the Park festival. 8\"x10\" oil on hardboard.",
+    "price_money": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/47398e0aac2fb5dba91a6a6bdcbd5b7d67d3c9a4/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/b8bed5076cd92677d6ea19aa1451587906642aa5/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/blue-ridge-fall-arts-in-the-park-10-11-25/PULNUXNCFS7TRWWPUJPEJ7LP",
+    "sold": false,
+    "categories": [
+      "plein air"
+    ],
+    "category": "plein air",
+    "updated_at": "2025-11-25T18:36:29.094Z",
+    "hero": false
+  },
+  {
+    "id": "TWFGFACT2H3XZ7FV2ANYZRBR",
+    "name": "Swamp Rabbit Trail, Greenville SC, 11.15.25",
+    "description": "The Swamp Rabbit Trail follows the Reedy River through downtown Greenville, SC, including the falls here under the Liberty Bridge. Fantastic weather. Friendly folks stopping to chat. Hard to beat. 8\"10\" oil on hardboard.",
+    "price_money": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/42760a6b46021159baece5d190fc7ad8f15de1ea/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/3d9c7fb152babe383f6eb5479b30e6362f6c0bee/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/906a5b61dbaccbcb2936b23b3f6a5bb65aab5b65/original.png"
+    ],
+    "url": "https://leonkoella.square.site/product/swamp-rabbit-trail-greenville-sc-11-15-25/TWFGFACT2H3XZ7FV2ANYZRBR",
+    "sold": false,
+    "categories": [
+      "plein air"
+    ],
+    "category": "plein air",
+    "updated_at": "2025-11-25T18:30:51.206Z",
+    "hero": false
+  },
+  {
+    "id": "QAL75SKL7GUVJL3F5RUENB24",
+    "name": "04W Art Fest 9.27.25",
+    "description": "A plein air painting of the Forth Hotel building at 800 Rankin St., done on Sept. 27th, 2025 during the Old Fourth Ward art festival. 8\"x10\" oil on hardboard.",
+    "price_money": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/40b5044c62b510598e009bf449d5e802936d5a72/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/d08ebdcb14cc118aac426cec706c5950527e9ee5/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/04w-art-fest-9-27-25/QAL75SKL7GUVJL3F5RUENB24",
+    "sold": false,
+    "categories": [
+      "plein air"
+    ],
+    "category": "plein air",
+    "updated_at": "2025-11-25T18:25:55.78Z",
+    "hero": false
+  },
+  {
     "id": "MLER7SBU66JRBFFTA2CPCPYN",
     "name": "Monschau House",
     "description": "A peaceful day in the hills over a German village. 30\"x40\" oil on cradled hardboard.",
