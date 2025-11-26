@@ -137,8 +137,6 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
 .home-hero h1 { margin: .25rem 0 .5rem; font-size: clamp(1.5rem, 3vw, 2.25rem); }
 
 
-
-/* Cards just wrap their content */
 .home-card { width: 200px; }
 .home-card--width2 { width: 400px; }
 
