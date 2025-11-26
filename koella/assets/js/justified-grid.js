@@ -13,15 +13,25 @@
     if (!images.length) return;
 
     const TARGET_ROW_HEIGHT = 220; // base target
-    const MIN_ROW_HEIGHT = 150;    // safety clamp
-    const MAX_ROW_HEIGHT = 280;    // safety clamp
+    const MIN_ROW_HEIGHT = 190;    // keep rows similar in height
+    const MAX_ROW_HEIGHT = 240;    // small variation only
     const GAP = 16;                // px; roughly 1rem
 
     function computeAspect(img) {
-      const w = img.naturalWidth || img.width || 1;
-      const h = img.naturalHeight || img.height || 1;
-      const ar = w / h;
-      return !isFinite(ar) || ar <= 0 ? 1 : ar;
+      // Prefer natural size
+      let w = img.naturalWidth;
+      let h = img.naturalHeight;
+
+      // Fallback: actual rendered box, in case natural* are 0
+      if (!w || !h) {
+        const rect = img.getBoundingClientRect();
+        w = rect.width || 1;
+        h = rect.height || 1;
+      }
+
+      let ar = w / h;
+      if (!isFinite(ar) || ar <= 0) ar = 1;
+      return ar;
     }
 
     function layout() {
@@ -45,19 +55,28 @@
         const totalGap = GAP * Math.max(0, row.length - 1);
         const rowWidthAtTarget = rowAspectSum * TARGET_ROW_HEIGHT + totalGap;
 
-        const useJustify = !isLastRow && rowWidthAtTarget > containerWidth * 0.8;
+        // For non-last rows that are reasonably full, justify them
+        const useJustify = !isLastRow && rowWidthAtTarget > containerWidth * 0.9;
 
-        let rowHeight = useJustify
-          ? (containerWidth - totalGap) / rowAspectSum
-          : TARGET_ROW_HEIGHT;
+        let rowHeight = TARGET_ROW_HEIGHT;
+        if (useJustify) {
+          rowHeight = (containerWidth - totalGap) / rowAspectSum;
+        }
 
         const originalRowHeight = rowHeight;
+        // Clamp so rows stay visually consistent
         if (rowHeight < MIN_ROW_HEIGHT) rowHeight = MIN_ROW_HEIGHT;
         if (rowHeight > MAX_ROW_HEIGHT) rowHeight = MAX_ROW_HEIGHT;
 
         console.log(
           "[justified-grid] flushRow",
-          { count: row.length, rowAspectSum, useJustify, originalRowHeight, rowHeight }
+          {
+            count: row.length,
+            rowAspectSum,
+            useJustify,
+            originalRowHeight,
+            rowHeight,
+          }
         );
 
         row.forEach((img) => {
@@ -85,6 +104,7 @@
         const totalGap = GAP * Math.max(0, row.length - 1);
         const rowWidthAtTarget = rowAspectSum * TARGET_ROW_HEIGHT + totalGap;
 
+        // Start a new row when we'd exceed the container
         if (rowWidthAtTarget >= containerWidth || isLast) {
           flushRow(isLast);
         }
