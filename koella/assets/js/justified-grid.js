@@ -37,8 +37,6 @@
     function layout() {
       let containerWidth = container.clientWidth;
       console.log("[justified-grid] layout start, containerWidth =", containerWidth);
-      containerWidth = containerWidth - 10;
-      console.log("just took 10px off container width.");
 
       if (!containerWidth) return;
 

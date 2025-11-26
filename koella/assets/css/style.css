@@ -140,9 +140,11 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
 .home-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;              /* keep your existing gap */
+  gap: 1rem;
   justify-content: flex-start;
   align-items: flex-start;
+  width: 100%;            /* <-- important */
+  box-sizing: border-box; /* be explicit */
 }
 
 /* Cards just wrap their content */
