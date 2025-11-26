@@ -136,16 +136,7 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
 
 .home-hero h1 { margin: .25rem 0 .5rem; font-size: clamp(1.5rem, 3vw, 2.25rem); }
 
-/* Thumbnails container: flex rows that wrap */
-.home-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;            /* <-- important */
-  box-sizing: border-box; /* be explicit */
-}
+
 
 /* Cards just wrap their content */
 .home-card { width: 200px; }
@@ -173,16 +164,6 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
   width: auto;
   object-fit: contain;
 }
-
-
-/* Make sure the title link stays normal */
-.home-card .meta .title a {
-  display: inline; /* default, but explicit just in case */
-}
-
-.home-card .meta { padding: .75rem 1rem; }
-.home-card .title { margin: 0 0 .25rem; font-weight: 600; }
-.home-card .date { font-size: .9rem; color: var(--muted); }
 
 /* Optional full-bleed hero even inside wrappers */
 .full-bleed { margin-inline: calc(50% - 50vw); width: 100vw; }
