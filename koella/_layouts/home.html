@@ -41,6 +41,8 @@ nil -%} {%- for art in artworks -%} {%- if art.hero == true -%} {%- assign hero
   <p><em>No artworks loaded yet.</em></p>
   {% endif %} {% if artworks and artworks.size > 0 %}
   <div class="home-grid">
+    <div class="grid-sizer"></div>
+    <div class="gutter-sizer"></div>
     {% for art in artworks limit:12 %} {%- if hero and art.id == hero.id -%} {%-
     continue -%} {%- endif -%}
 
