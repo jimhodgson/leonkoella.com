@@ -11,7 +11,7 @@ $(function () {
 
     $grid.masonry({
       itemSelector: '.home-card',
-      columnWidth: '.home-card', // use card width as column width
+      columnWidth: '.home-card', // what in the fucking fuck
       gutter: 4,
       percentPosition: true
     });
