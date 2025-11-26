@@ -1,20 +1,19 @@
-$(document).ready(function () {
+$(function () {
   var $grid = $('.home-grid');
-
   if (!$grid.length) {
-    console.log("[masonry] no .home-grid found");
+    console.log('[masonry] no .home-grid found');
     return;
   }
 
-  // Initialize Masonry
-  $grid.masonry({
-    itemSelector: '.home-card',
-    columnWidth: '.home-card',
-    percentPosition: true
-  });
-
-  // Important: make Masonry re-layout after images load
+  // Wait for all images inside .home-grid to load
   $grid.imagesLoaded(function () {
-    $grid.masonry('layout');
+    console.log('[masonry] images loaded, initializing Masonry');
+
+    $grid.masonry({
+      itemSelector: '.home-card',
+      columnWidth: '.home-card', // use card width as column width
+      percentPosition: true
+    });
   });
 });
+
