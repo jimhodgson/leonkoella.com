@@ -113,9 +113,31 @@ function moneyToSimple(m) {
 }
 
 function isSold(itemObj) {
-  // TODO: wire to your real sold rule if you want later.
+  const item = itemObj.item_data;
+  if (!item || !Array.isArray(item.variations)) return false;
+
+  // Check each variation
+  for (const variation of item.variations) {
+    const v = variation.item_variation_data;
+    if (!v) continue;
+
+    // Check location overrides
+    const overrides = v.location_overrides || [];
+    for (const o of overrides) {
+      if (o.sold_out === true) {
+        return true;
+      }
+    }
+
+    // Fallback: if tracking inventory AND stock is 0
+    if (v.track_inventory && v.inventory_alert_type === "NONE") {
+      // optional: Square doesn’t always return inventory counts here
+    }
+  }
+
   return false;
 }
+
 
 function buildCategoryMap(objects) {
   const map = {};

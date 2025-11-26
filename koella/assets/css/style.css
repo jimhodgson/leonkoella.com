@@ -138,7 +138,7 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
 
 
 .home-card { 
-  width: 200px;
+  width: 19.7%;
   margin-bottom: 5px; 
 }
 .gutter-sizer { width: 5px; }
@@ -150,7 +150,7 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
 /* okay on mobile? */
 @media (max-width: 1080px) {
   .home-card {
-    width: 48%;
+    width: 49.7%;
     margin-bottom: 5px;
   }
   home.card--width2 {
