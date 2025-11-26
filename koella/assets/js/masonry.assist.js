@@ -12,7 +12,7 @@ $(function () {
     $grid.masonry({
       itemSelector: '.home-card',
       columnWidth: '.home-card', // use card width as column width
-      gutter: '4%',
+      gutter: 4,
       percentPosition: true
     });
   });

@@ -139,9 +139,9 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
 
 .home-card { 
   width: 20%;
-  margin-bottom: 4%; 
+  margin-bottom: 5px; 
 }
-.gutter-sizer { width: 4%; }
+.gutter-sizer { width: 5px; }
 .home-card--width2 { width: 40%; }
 
 .home-card > a {
