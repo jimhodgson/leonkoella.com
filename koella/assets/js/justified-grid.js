@@ -1,27 +1,36 @@
 (function () {
+  console.log("[justified-grid] script loaded");
+
   const container = document.querySelector(".home-grid");
-  if (!container) return;
+  if (!container) {
+    console.log("[justified-grid] no .home-grid found");
+    return;
+  }
 
-  const images = Array.from(
-    container.querySelectorAll(".home-card img")
-  );
-
+  const images = Array.from(container.querySelectorAll(".home-card img"));
+  console.log("[justified-grid] found", images.length, "images");
   if (!images.length) return;
 
-  const TARGET_ROW_HEIGHT = 220; // px, tweak to taste
-  const GAP = 16; // px; should roughly match your CSS gap (1rem ≈ 16px)
+  const TARGET_ROW_HEIGHT = 220; // base target
+  const MIN_ROW_HEIGHT = 150;    // safety clamp
+  const MAX_ROW_HEIGHT = 280;    // safety clamp
+  const GAP = 16;                // px; roughly 1rem
 
   function computeAspect(img) {
     const w = img.naturalWidth || img.width || 1;
     const h = img.naturalHeight || img.height || 1;
-    return w / h;
+    const ar = w / h;
+    // Avoid insane values
+    return !isFinite(ar) || ar <= 0 ? 1 : ar;
   }
 
   function layout() {
     const containerWidth = container.clientWidth;
+    console.log("[justified-grid] layout start, containerWidth =", containerWidth);
+
     if (!containerWidth) return;
 
-    // Reset any previous inline sizing
+    // Reset inline sizing before measuring
     images.forEach((img) => {
       img.style.width = "";
       img.style.height = "";
@@ -33,16 +42,25 @@
     function flushRow(isLastRow) {
       if (!row.length) return;
 
-      // Width that this row would take at target height
-      const totalGap = GAP * (row.length - 1);
+      const totalGap = GAP * Math.max(0, row.length - 1);
       const rowWidthAtTarget = rowAspectSum * TARGET_ROW_HEIGHT + totalGap;
 
-      // Scale height so the row fits the container width
-      // For the last row, you can choose to keep target height instead
+      // Decide whether to justify this row or just use target height
       const useJustify = !isLastRow && rowWidthAtTarget > containerWidth * 0.8;
-      const rowHeight = useJustify
+
+      let rowHeight = useJustify
         ? (containerWidth - totalGap) / rowAspectSum
         : TARGET_ROW_HEIGHT;
+
+      // Clamp rowHeight so it can't blow up
+      const originalRowHeight = rowHeight;
+      if (rowHeight < MIN_ROW_HEIGHT) rowHeight = MIN_ROW_HEIGHT;
+      if (rowHeight > MAX_ROW_HEIGHT) rowHeight = MAX_ROW_HEIGHT;
+
+      console.log(
+        "[justified-grid] flushRow",
+        { count: row.length, rowAspectSum, useJustify, originalRowHeight, rowHeight }
+      );
 
       row.forEach((img) => {
         const ar = parseFloat(img.dataset.aspect) || 1;
@@ -57,7 +75,7 @@
 
     images.forEach((img, idx) => {
       let ar = parseFloat(img.dataset.aspect);
-      if (!ar || !isFinite(ar)) {
+      if (!ar || !isFinite(ar) || ar <= 0) {
         ar = computeAspect(img);
         img.dataset.aspect = ar;
       }
@@ -66,18 +84,23 @@
       rowAspectSum += ar;
 
       const isLast = idx === images.length - 1;
-      const totalGap = GAP * (row.length - 1);
+      const totalGap = GAP * Math.max(0, row.length - 1);
       const rowWidthAtTarget = rowAspectSum * TARGET_ROW_HEIGHT + totalGap;
 
       if (rowWidthAtTarget >= containerWidth || isLast) {
         flushRow(isLast);
       }
     });
+
+    console.log("[justified-grid] layout done");
   }
 
   function onAllImagesLoaded(callback) {
     let remaining = images.length;
-    if (!remaining) return callback();
+    if (!remaining) {
+      callback();
+      return;
+    }
 
     images.forEach((img) => {
       if (img.complete && img.naturalWidth) {
@@ -96,12 +119,16 @@
     });
   }
 
-  let resizeTimeout = null;
+  let resizeRafId = null;
   function onResize() {
-    if (resizeTimeout) cancelAnimationFrame(resizeTimeout);
-    resizeTimeout = requestAnimationFrame(layout);
+    if (resizeRafId) cancelAnimationFrame(resizeRafId);
+    resizeRafId = requestAnimationFrame(layout);
   }
 
-  onAllImagesLoaded(layout);
+  onAllImagesLoaded(() => {
+    console.log("[justified-grid] all images loaded, running layout");
+    layout();
+  });
+
   window.addEventListener("resize", onResize);
 })();
