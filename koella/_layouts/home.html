@@ -50,7 +50,7 @@ true %} {% assign art_sold = true %} {% endif %}
 
     <article class="home-card">
       <a
-        class="frame-gold frame-gold--mat frame-gold--thumb {% if art_sold == true %}is-sold{% endif %}"
+        class="frame-gold frame-gold--mat frame-gold--thumb {% if art.sold %}is-sold{% endif %}"
         href="{{ art.url | default: '#' }}"
         {%
         if
