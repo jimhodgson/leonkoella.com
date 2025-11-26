@@ -141,6 +141,7 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
   width: 22%;
   margin-bottom: 5px; 
 }
+.gutter-sizer { width: 4%; }
 .home-card--width2 { width: 44%; }
 
 .home-card > a {
