@@ -2,9 +2,11 @@
 layout: default
 ---
 
-{%- assign artworks = site.data.artworks | default: empty -%} {%- assign hero =
-nil -%} {%- for art in artworks -%} {%- if art.hero == true -%} {%- assign hero
-= art -%} {%- break -%} {%- endif -%} {%- endfor -%}
+{%- assign artworks = site.data.artworks | default: empty -%} {%- assign studio
+= artworks | where_exp: "a", "a.category == 'studio'" -%} {%- assign hero =
+artworks | where: "hero", true | first -%} {% if hero.sold == true %} {% assign
+hero_sold = true %} {% endif %} {% assign art_sold = false %} {% if art.sold ==
+true %} {% assign art_sold = true %} {% endif %}
 
 <div class="wrapper">
   {% if hero %}
@@ -48,7 +50,7 @@ nil -%} {%- for art in artworks -%} {%- if art.hero == true -%} {%- assign hero
 
     <article class="home-card">
       <a
-        class="frame-gold frame-gold--mat frame-gold--thumb {% if art.sold %}is-sold{% endif %}"
+        class="frame-gold frame-gold--mat frame-gold--thumb {% if art_sold == true %}is-sold{% endif %}"
         href="{{ art.url | default: '#' }}"
         {%
         if

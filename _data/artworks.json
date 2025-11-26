@@ -11,7 +11,7 @@
       "https://items-images-production.s3.us-west-2.amazonaws.com/files/706e31377f4ae02ee8f230da1a18e59ade9c6853/original.jpeg"
     ],
     "url": "https://leonkoella.square.site/product/seaside-sundown/N3K2BUM3G7MSMBEIAAPSHOCJ",
-    "sold": false,
+    "sold": true,
     "categories": [
       "studio"
     ],
@@ -31,7 +31,7 @@
       "https://items-images-production.s3.us-west-2.amazonaws.com/files/4e749301c118e199be4b7549739791a7e1fbb07e/original.jpeg"
     ],
     "url": "https://leonkoella.square.site/product/misty-morning/QRA3FV7XNSZHHOBQ4SFOCCKS",
-    "sold": false,
+    "sold": true,
     "categories": [
       "studio"
     ],
