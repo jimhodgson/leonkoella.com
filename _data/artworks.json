@@ -1,5 +1,69 @@
 [
   {
+    "id": "HH6234PBBG3NSFBMONQJVIAM",
+    "name": "Lake Clara Meer",
+    "description": "Out on the dock over Lake Clara Meer, getting in a little painting. Unfortunately for the ducks I did not bring any bread. Sorry, guys.",
+    "price_money": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/a588a86a3038bf0a10600179e40d7bc25b040eb8/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/bdaf83f6f6f6e54e9d461070dd1b197f893925f5/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/lake-clara-meer/HH6234PBBG3NSFBMONQJVIAM",
+    "sold": false,
+    "categories": [
+      "plein air"
+    ],
+    "category": "plein air",
+    "updated_at": "2025-12-09T13:24:53.363Z",
+    "hero": false
+  },
+  {
+    "id": "GBNNCFSAFAAOMLHBGZ7TS6YQ",
+    "name": "O4W Park 11.25.25",
+    "description": "A man I admired a lot when I worked in this neighborhood, up on Glen Iris, thought the renovations that would become what is now Old Fourth Ward Park were a bad idea. He was not right about that. But he was right about a lot of things. The old building is gone now and so is Mark Brown. RIP MB1.",
+    "price_money": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/e2fabc8379614f9abc7e5f8ec195aa5d9fa8add8/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/039964b0759b4e472f26029ec3c63b86977a30ce/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/aa489272b814bca76a576bd9a1cf742d5a28f0bd/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/o4w-park-11-25-25/GBNNCFSAFAAOMLHBGZ7TS6YQ",
+    "sold": false,
+    "categories": [
+      "plein air"
+    ],
+    "category": "plein air",
+    "updated_at": "2025-12-09T13:20:23.913Z",
+    "hero": false
+  },
+  {
+    "id": "O5U2I6NGEY77ATBQIRJ3LNOY",
+    "name": "Chastain Park Trees 11.1.25",
+    "description": "Painted during the Chastain Park Fall Arts Fest. Gorgeous weather, very enjoyable festival. I enjoyed it immensely.",
+    "price_money": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/7583f505748aca3bc112b5914549b2d79f10c22a/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/b8d531244448e1f413f5109820a27d97ed6e5de3/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/chastain-park-trees-11-1-25/O5U2I6NGEY77ATBQIRJ3LNOY",
+    "sold": false,
+    "categories": [
+      "plein air"
+    ],
+    "category": "plein air",
+    "updated_at": "2025-12-09T13:14:19.924Z",
+    "hero": false
+  },
+  {
     "id": "ETB2OKMWJGKIQ5CXDTPQHCD4",
     "name": "Winter Coo",
     "description": "A winter's day in western Georgia and a curious friend. 16\"x20\" oil on creadled hardboard. \n\n\"Winter Coo\" was accepted to Suwanee Arts Center's Harvest show.",
