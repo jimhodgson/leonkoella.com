@@ -1,62 +1,22 @@
 [
   {
-    "id": "N3K2BUM3G7MSMBEIAAPSHOCJ",
-    "name": "Seaside Sundown",
-    "description": "The heat of the sun on the cliffs and on the buildings. Sand underfoot. 8\"x10\" oil on hardboard.",
-    "price_money": {
-      "amount": 10000,
-      "currency": "USD"
-    },
-    "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/706e31377f4ae02ee8f230da1a18e59ade9c6853/original.jpeg"
-    ],
-    "url": "https://leonkoella.square.site/product/seaside-sundown/N3K2BUM3G7MSMBEIAAPSHOCJ",
-    "sold": true,
-    "categories": [
-      "studio"
-    ],
-    "category": "studio",
-    "updated_at": "2025-11-25T21:49:03.682Z",
-    "hero": false
-  },
-  {
-    "id": "QRA3FV7XNSZHHOBQ4SFOCCKS",
-    "name": "Misty Morning",
-    "description": "A misty morning view to barely visible trees. 8\"x10\" oil on hardboard.",
-    "price_money": {
-      "amount": 10000,
-      "currency": "USD"
-    },
-    "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/4e749301c118e199be4b7549739791a7e1fbb07e/original.jpeg"
-    ],
-    "url": "https://leonkoella.square.site/product/misty-morning/QRA3FV7XNSZHHOBQ4SFOCCKS",
-    "sold": true,
-    "categories": [
-      "studio"
-    ],
-    "category": "studio",
-    "updated_at": "2025-11-25T21:48:02.893Z",
-    "hero": false
-  },
-  {
-    "id": "JAFXMIK5C7AQZX3GTCZ6BRH2",
-    "name": "Piedmont Park Skyline",
-    "description": "Looking toward midtown from across the pond in Piedmont Park. One of my favorite places to be. 16\"x20\" oil on cradled hardboard.",
+    "id": "ETB2OKMWJGKIQ5CXDTPQHCD4",
+    "name": "Winter Coo",
+    "description": "A winter's day in western Georgia and a curious friend. 16\"x20\" oil on creadled hardboard. \n\n\"Winter Coo\" was accepted to Suwanee Arts Center's Harvest show.",
     "price_money": {
       "amount": 32000,
       "currency": "USD"
     },
     "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/0308b65888a145b71b6be5737ccc195c94137316/original.jpeg"
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/ce3d8bfc3cf6d8f8c276fb26f012fe440ebf04ff/original.jpeg"
     ],
-    "url": "https://leonkoella.square.site/product/piedmont-park-skyline/JAFXMIK5C7AQZX3GTCZ6BRH2",
-    "sold": true,
+    "url": "https://leonkoella.square.site/product/winter-coo/ETB2OKMWJGKIQ5CXDTPQHCD4",
+    "sold": false,
     "categories": [
       "studio"
     ],
     "category": "studio",
-    "updated_at": "2025-11-25T21:46:47.478Z",
+    "updated_at": "2025-12-09T12:58:11.685Z",
     "hero": false
   },
   {
@@ -68,7 +28,7 @@
       "currency": "USD"
     },
     "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/bded8d14b81582fef0a71531916fabfa37363aca/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/56947cc84e02bfeb8aad37e3e0807fa6c1a3392c/original.jpeg",
       "https://items-images-production.s3.us-west-2.amazonaws.com/files/42760a6b46021159baece5d190fc7ad8f15de1ea/original.jpeg",
       "https://items-images-production.s3.us-west-2.amazonaws.com/files/3d9c7fb152babe383f6eb5479b30e6362f6c0bee/original.jpeg",
       "https://items-images-production.s3.us-west-2.amazonaws.com/files/906a5b61dbaccbcb2936b23b3f6a5bb65aab5b65/original.png"
@@ -79,113 +39,47 @@
       "plein air"
     ],
     "category": "plein air",
-    "updated_at": "2025-11-25T21:32:28.799Z",
+    "updated_at": "2025-12-09T12:57:23.773Z",
     "hero": false
   },
   {
-    "id": "PULNUXNCFS7TRWWPUJPEJ7LP",
-    "name": "Blue Ridge Fall Arts in the Park 10.11.25",
-    "description": "A plein air piece painted on Oct 11th 2025 at the Blue Ridge GA Fall Arts in the Park festival. 8\"x10\" oil on hardboard.",
+    "id": "N3K2BUM3G7MSMBEIAAPSHOCJ",
+    "name": "Seaside Sundown",
+    "description": "The heat of the sun on the cliffs and on the buildings. Sand underfoot. 8\"x10\" oil on hardboard.",
     "price_money": {
       "amount": 10000,
       "currency": "USD"
     },
     "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/9bc724c6e909664cd9cd9fd332214d8ceaf0c4a1/original.jpeg",
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/47398e0aac2fb5dba91a6a6bdcbd5b7d67d3c9a4/original.jpeg",
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/b8bed5076cd92677d6ea19aa1451587906642aa5/original.jpeg"
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/5b8b7781c82cad980f34abb48ef394505535c305/original.jpeg"
     ],
-    "url": "https://leonkoella.square.site/product/blue-ridge-fall-arts-in-the-park-10-11-25/PULNUXNCFS7TRWWPUJPEJ7LP",
-    "sold": false,
-    "categories": [
-      "plein air"
-    ],
-    "category": "plein air",
-    "updated_at": "2025-11-25T21:32:03.025Z",
-    "hero": false
-  },
-  {
-    "id": "QAL75SKL7GUVJL3F5RUENB24",
-    "name": "04W Art Fest 9.27.25",
-    "description": "A plein air painting of the Forth Hotel building at 800 Rankin St., done on Sept. 27th, 2025 during the Old Fourth Ward art festival. 8\"x10\" oil on hardboard.",
-    "price_money": {
-      "amount": 10000,
-      "currency": "USD"
-    },
-    "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/29dde6d88284515636aeea0fd29fb6245ed2b42c/original.jpeg",
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/40b5044c62b510598e009bf449d5e802936d5a72/original.jpeg",
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/d08ebdcb14cc118aac426cec706c5950527e9ee5/original.jpeg"
-    ],
-    "url": "https://leonkoella.square.site/product/04w-art-fest-9-27-25/QAL75SKL7GUVJL3F5RUENB24",
-    "sold": false,
-    "categories": [
-      "plein air"
-    ],
-    "category": "plein air",
-    "updated_at": "2025-11-25T21:31:41.853Z",
-    "hero": false
-  },
-  {
-    "id": "MLER7SBU66JRBFFTA2CPCPYN",
-    "name": "Monschau House",
-    "description": "A peaceful day in the hills over a German village. 30\"x40\" oil on cradled hardboard.",
-    "price_money": {
-      "amount": 120000,
-      "currency": "USD"
-    },
-    "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/e739b8a0514b6461ce14f3d0dadc2ad6bdc962fc/original.jpeg"
-    ],
-    "url": "https://leonkoella.square.site/product/monschau-house/MLER7SBU66JRBFFTA2CPCPYN",
-    "sold": false,
+    "url": "https://leonkoella.square.site/product/seaside-sundown/N3K2BUM3G7MSMBEIAAPSHOCJ",
+    "sold": true,
     "categories": [
       "studio"
     ],
     "category": "studio",
-    "updated_at": "2025-11-25T13:52:21.003Z",
-    "hero": true
+    "updated_at": "2025-12-09T12:56:25.285Z",
+    "hero": false
   },
   {
-    "id": "X3STIDQCSMJUZVRIMGKXT7IS",
-    "name": "ABG Plein Air 10.24.24",
-    "description": "Atlanta Botanical Garden plein air painting from October 24th, 2024. 16\"x20\" on hardboard panel.",
+    "id": "JAFXMIK5C7AQZX3GTCZ6BRH2",
+    "name": "Piedmont Park Skyline",
+    "description": "Looking toward midtown from across the pond in Piedmont Park. One of my favorite places to be. 16\"x20\" oil on cradled hardboard.",
     "price_money": {
       "amount": 32000,
       "currency": "USD"
     },
     "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/e558f797b49d38593c5ad9c5e5ed51b1476fa49e/original.jpeg",
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/644ee8a76ae9a07fe5963522f10f15613303264e/original.jpeg",
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/dfb4df1d2ed74157fef963885789fbbf64aa1dc9/original.jpeg"
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/03b295c84788c6ef348d048efca2c0e96a474150/original.jpeg"
     ],
-    "url": "https://leonkoella.square.site/product/abg-plein-air-10-24-24/X3STIDQCSMJUZVRIMGKXT7IS",
-    "sold": false,
-    "categories": [
-      "plein air"
-    ],
-    "category": "plein air",
-    "updated_at": "2025-11-25T12:32:21.98Z",
-    "hero": false
-  },
-  {
-    "id": "ETB2OKMWJGKIQ5CXDTPQHCD4",
-    "name": "Winter Coo",
-    "description": "A winter's day in western Georgia and a curious friend. 16\"x20\" oil on creadled hardboard. \n\n\"Winter Coo\" was accepted to Suwanee Arts Center's Harvest show.",
-    "price_money": {
-      "amount": 32000,
-      "currency": "USD"
-    },
-    "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/7a686e0d007cfd0d1066b53d17bec4e5178b96ef/original.jpeg"
-    ],
-    "url": "https://leonkoella.square.site/product/winter-coo/ETB2OKMWJGKIQ5CXDTPQHCD4",
-    "sold": false,
+    "url": "https://leonkoella.square.site/product/piedmont-park-skyline/JAFXMIK5C7AQZX3GTCZ6BRH2",
+    "sold": true,
     "categories": [
       "studio"
     ],
     "category": "studio",
-    "updated_at": "2025-11-24T21:21:24.677Z",
+    "updated_at": "2025-12-09T12:55:34.2Z",
     "hero": false
   },
   {
@@ -197,7 +91,7 @@
       "currency": "USD"
     },
     "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/2c16bc4f63b7d4052b7a212a54d5a5837b9280c7/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/705087811955662a27247eb674218a01c823ec38/original.jpeg",
       "https://items-images-production.s3.us-west-2.amazonaws.com/files/8e5c2174e81cb2ec5864ad5ffac1e6b7e7f7fbdb/original.jpeg"
     ],
     "url": "https://leonkoella.square.site/product/park-drive-bridge/WPVKLUJXYPWOACMMKIHV7N7E",
@@ -206,7 +100,113 @@
       "studio"
     ],
     "category": "studio",
-    "updated_at": "2025-11-24T19:47:30.987Z",
+    "updated_at": "2025-12-09T12:54:33.116Z",
+    "hero": false
+  },
+  {
+    "id": "MLER7SBU66JRBFFTA2CPCPYN",
+    "name": "Monschau House",
+    "description": "A peaceful day in the hills over a German village. 30\"x40\" oil on cradled hardboard.",
+    "price_money": {
+      "amount": 120000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/4adfd9e783beae674a51bd5561bbd5f836128d8f/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/monschau-house/MLER7SBU66JRBFFTA2CPCPYN",
+    "sold": false,
+    "categories": [
+      "studio"
+    ],
+    "category": "studio",
+    "updated_at": "2025-12-09T12:52:31.156Z",
+    "hero": true
+  },
+  {
+    "id": "QRA3FV7XNSZHHOBQ4SFOCCKS",
+    "name": "Misty Morning",
+    "description": "A misty morning view to barely visible trees. 8\"x10\" oil on hardboard.",
+    "price_money": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/7a822aa9d5192baa98bb23d5bf44926e14cd0d45/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/misty-morning/QRA3FV7XNSZHHOBQ4SFOCCKS",
+    "sold": true,
+    "categories": [
+      "studio"
+    ],
+    "category": "studio",
+    "updated_at": "2025-12-09T12:49:53.286Z",
+    "hero": false
+  },
+  {
+    "id": "PULNUXNCFS7TRWWPUJPEJ7LP",
+    "name": "Blue Ridge Fall Arts in the Park 10.11.25",
+    "description": "A plein air piece painted on Oct 11th 2025 at the Blue Ridge GA Fall Arts in the Park festival. 8\"x10\" oil on hardboard.",
+    "price_money": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/f6316535f4a08d4fe5c0d8a5ab3592275bf3f64f/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/47398e0aac2fb5dba91a6a6bdcbd5b7d67d3c9a4/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/b8bed5076cd92677d6ea19aa1451587906642aa5/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/blue-ridge-fall-arts-in-the-park-10-11-25/PULNUXNCFS7TRWWPUJPEJ7LP",
+    "sold": false,
+    "categories": [
+      "plein air"
+    ],
+    "category": "plein air",
+    "updated_at": "2025-12-09T12:47:42.602Z",
+    "hero": false
+  },
+  {
+    "id": "X3STIDQCSMJUZVRIMGKXT7IS",
+    "name": "ABG Plein Air 10.24.24",
+    "description": "Atlanta Botanical Garden plein air painting from October 24th, 2024. 16\"x20\" on hardboard panel.",
+    "price_money": {
+      "amount": 32000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/accbdbcbe4177de3aa44f18541e0084769292976/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/644ee8a76ae9a07fe5963522f10f15613303264e/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/dfb4df1d2ed74157fef963885789fbbf64aa1dc9/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/abg-plein-air-10-24-24/X3STIDQCSMJUZVRIMGKXT7IS",
+    "sold": false,
+    "categories": [
+      "plein air"
+    ],
+    "category": "plein air",
+    "updated_at": "2025-12-09T12:45:56.582Z",
+    "hero": false
+  },
+  {
+    "id": "QAL75SKL7GUVJL3F5RUENB24",
+    "name": "04W Art Fest 9.27.25",
+    "description": "A plein air painting of the Forth Hotel building at 800 Rankin St., done on Sept. 27th, 2025 during the Old Fourth Ward art festival. 8\"x10\" oil on hardboard.",
+    "price_money": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/9dee72a09c7d0fadc280a171ca129ef68cfe4d5d/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/40b5044c62b510598e009bf449d5e802936d5a72/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/d08ebdcb14cc118aac426cec706c5950527e9ee5/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/04w-art-fest-9-27-25/QAL75SKL7GUVJL3F5RUENB24",
+    "sold": false,
+    "categories": [
+      "plein air"
+    ],
+    "category": "plein air",
+    "updated_at": "2025-12-09T12:43:46.187Z",
     "hero": false
   }
 ]
