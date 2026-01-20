@@ -23,13 +23,19 @@
 html, body { margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
- font-family: "Walter Turncoat", Helvetica, sans-serif;
+ font-family: Helvetica, sans-serif;
   color: var(--text);
   background: var(--bg);
 }
 
+a.brand, #site-nav { 
+   font-family: "Walter Turncoat", Helvetica, sans-serif;
+}
+
 /* Type scale */
-h1, h2, h3, h4, h5, h6 { line-height: 1.25; margin: 1.5rem 0 .75rem; }
+h1, h2, h3, h4, h5, h6 { line-height: 1.25; margin: 1.5rem 0 .75rem; 
+   font-family: "Walter Turncoat", Helvetica, sans-serif;
+}
 h1 { font-size: clamp(1.8rem, 4vw, 2.25rem); }
 h2 { font-size: clamp(1.4rem, 3vw, 1.75rem); }
 h3 { font-size: 1.25rem; }
@@ -306,3 +312,9 @@ th, td { text-align: left; border-bottom: var(--border); padding: .5rem .6rem; }
   margin: 100px 0 0 0;
   text-align: center;}
 .mailinglist h1 { margin: 0 auto;}
+
+p.about { 
+  font-weight: 100;
+  font-size: 20pt;
+  line-height: 150%;
+}
