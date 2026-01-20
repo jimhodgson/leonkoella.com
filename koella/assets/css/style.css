@@ -94,12 +94,49 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
 .nav-toggle { justify-self: end; display: none; background: none; border: 0; font-size: 1.25rem; line-height: 1; }
 
 @media (max-width: 1080px) {
-  .nav { position: fixed; left: 0; right: 0; top: var(--header-h); display: none; background: var(--bg); }
-  .nav.is-open { display: block; }
-  .nav ul { flex-direction: column; align-items: center; }
-  .nav-toggle { position: absolute; right: var(--gutter, 1rem); top: .5rem; }
-  .nav a { color: var(--accent);}
+
+  /* Hide hamburger button: we won't need it */
+  .nav-toggle { display: none !important; }
+
+  /* Make header stack nicely */
+  .masthead {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .75rem;
+  }
+
+  /* Always show nav */
+  .nav {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+  }
+
+  /* Keep the link list horizontal (or wrap if needed) */
+  .nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav li { margin: 0; }
+
+  /* Optional: slightly smaller links for mobile */
+  .nav a {
+    font-size: 0.95rem;
+  }
 }
+
 
 .postimage { padding: 5px; }
 /* =========================
@@ -148,6 +185,12 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
   margin-bottom: 5px; 
 }
 .gutter-sizer { width: 5px; }
+
+.grid-sizer { width: 19.7%; }   /* match desktop card width */
+@media (max-width: 1080px) {
+  .grid-sizer { width: 49.7%; } /* match mobile card width */
+}
+
 .home-card--width2 { width: 400px; }
 
 .home-card > a {
@@ -159,7 +202,7 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
     width: 49.7%;
     margin-bottom: 5px;
   }
-  home.card--width2 {
+  .home.card--width2 {
     width: 50%;
   }
 }
@@ -317,4 +360,9 @@ p.about {
   font-weight: 100;
   font-size: 20pt;
   line-height: 150%;
+}
+@media (max-width: 1080px) {
+  p.about { 
+    font-size: 10pt;
+  }
 }
