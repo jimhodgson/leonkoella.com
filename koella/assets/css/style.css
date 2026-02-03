@@ -181,12 +181,12 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
 
 
 .home-card { 
-  width: 19.7%;
+  width: 19.2%;
   margin-bottom: 5px; 
 }
 .gutter-sizer { width: 5px; }
 
-.grid-sizer { width: 19.7%; }   /* match desktop card width */
+.grid-sizer { width: 19.2%; }   /* match desktop card width */
 @media (max-width: 1080px) {
   .grid-sizer { width: 49.7%; } /* match mobile card width */
 }
