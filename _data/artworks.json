@@ -16,7 +16,27 @@
       "studio"
     ],
     "category": "studio",
-    "updated_at": "2026-02-02T19:28:25.769Z",
+    "updated_at": "2026-02-03T01:15:11.506Z",
+    "hero": true
+  },
+  {
+    "id": "MLER7SBU66JRBFFTA2CPCPYN",
+    "name": "Monschau House",
+    "description": "A peaceful day in the hills over a German village. 30\"x40\" oil on cradled hardboard.",
+    "price_money": {
+      "amount": 120000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/4adfd9e783beae674a51bd5561bbd5f836128d8f/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/monschau-house/MLER7SBU66JRBFFTA2CPCPYN",
+    "sold": false,
+    "categories": [
+      "studio"
+    ],
+    "category": "studio",
+    "updated_at": "2026-02-03T01:14:33.136Z",
     "hero": false
   },
   {
@@ -266,26 +286,6 @@
     "category": "studio",
     "updated_at": "2025-12-09T12:54:33.116Z",
     "hero": false
-  },
-  {
-    "id": "MLER7SBU66JRBFFTA2CPCPYN",
-    "name": "Monschau House",
-    "description": "A peaceful day in the hills over a German village. 30\"x40\" oil on cradled hardboard.",
-    "price_money": {
-      "amount": 120000,
-      "currency": "USD"
-    },
-    "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/4adfd9e783beae674a51bd5561bbd5f836128d8f/original.jpeg"
-    ],
-    "url": "https://leonkoella.square.site/product/monschau-house/MLER7SBU66JRBFFTA2CPCPYN",
-    "sold": false,
-    "categories": [
-      "studio"
-    ],
-    "category": "studio",
-    "updated_at": "2025-12-09T12:52:31.156Z",
-    "hero": true
   },
   {
     "id": "QRA3FV7XNSZHHOBQ4SFOCCKS",
