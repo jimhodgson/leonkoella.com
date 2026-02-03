@@ -1,5 +1,125 @@
 [
   {
+    "id": "632HI37OA4Z4MET26LTYFWPR",
+    "name": "Pointe Park 2",
+    "description": "The only trouble with morning walks is if you enjoy them it's soon not morning anymore. \n\n6x6 cold wax and oil on hardboard",
+    "price_money": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/a7e732dd64eb191e1f4dd61c76af95f22954d45e/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/pointe-park-2/632HI37OA4Z4MET26LTYFWPR",
+    "sold": false,
+    "categories": [
+      "studio"
+    ],
+    "category": "studio",
+    "updated_at": "2026-02-03T01:15:11.506Z",
+    "hero": true
+  },
+  {
+    "id": "MLER7SBU66JRBFFTA2CPCPYN",
+    "name": "Monschau House",
+    "description": "A peaceful day in the hills over a German village. 30\"x40\" oil on cradled hardboard.",
+    "price_money": {
+      "amount": 120000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/4adfd9e783beae674a51bd5561bbd5f836128d8f/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/monschau-house/MLER7SBU66JRBFFTA2CPCPYN",
+    "sold": false,
+    "categories": [
+      "studio"
+    ],
+    "category": "studio",
+    "updated_at": "2026-02-03T01:14:33.136Z",
+    "hero": false
+  },
+  {
+    "id": "TDHEV3BRPOYBCY4ABAW4GLID",
+    "name": "Greenville Alley",
+    "description": "I just love alleyways, maybe because there are so few of them. \n\n6x6 cold wax and oil on hardboard",
+    "price_money": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/93444a8f40071a713ac0ec2166c6581a9740447d/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/greenville-alley/TDHEV3BRPOYBCY4ABAW4GLID",
+    "sold": false,
+    "categories": [
+      "studio"
+    ],
+    "category": "studio",
+    "updated_at": "2026-02-02T19:25:21.69Z",
+    "hero": false
+  },
+  {
+    "id": "MMIKPGFFE4K5RHXPVXLNYV62",
+    "name": "Cold Ridge",
+    "description": "It's definitely not warm in the morning, but at least the wind's not up yet. \n\n6x6 cold wax and oil on hardboard",
+    "price_money": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/2cd8590e6f384861b8f0ebb53b91c5a084dd3ec4/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/cold-ridge/MMIKPGFFE4K5RHXPVXLNYV62",
+    "sold": false,
+    "categories": [
+      "studio"
+    ],
+    "category": "studio",
+    "updated_at": "2026-02-02T19:24:27.419Z",
+    "hero": false
+  },
+  {
+    "id": "SWZUCREW2OLJDUHV7KKN6YGE",
+    "name": "Cold Sunup",
+    "description": "Pre dawn can be wonderful, but getting warmed by the sun is undeniable. \n\n6x6 cold wax and oil on hardboard",
+    "price_money": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/bcda02eac08cec2bc8d88e6ca313a7117f0dd64f/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/cold-sunup/SWZUCREW2OLJDUHV7KKN6YGE",
+    "sold": false,
+    "categories": [
+      "studio"
+    ],
+    "category": "studio",
+    "updated_at": "2026-02-02T19:20:51.223Z",
+    "hero": false
+  },
+  {
+    "id": "EXIZ3IL6HXBX4VQCRVFBZBIL",
+    "name": "Pointe Park 3",
+    "description": "Great day to walk, a great day to take note of the treeline. \n\n6x6 cold wax and oil on hardboard",
+    "price_money": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/e945a18b8e3b0b4eeb93cd3f654d99f7b1e63312/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/pointe-park-3/EXIZ3IL6HXBX4VQCRVFBZBIL",
+    "sold": false,
+    "categories": [
+      "studio"
+    ],
+    "category": "studio",
+    "updated_at": "2026-02-02T19:19:31.597Z",
+    "hero": false
+  },
+  {
     "id": "HH6234PBBG3NSFBMONQJVIAM",
     "name": "Lake Clara Meer",
     "description": "Out on the dock over Lake Clara Meer, getting in a little painting. Unfortunately for the ducks I did not bring any bread. Sorry, guys.",
@@ -166,26 +286,6 @@
     "category": "studio",
     "updated_at": "2025-12-09T12:54:33.116Z",
     "hero": false
-  },
-  {
-    "id": "MLER7SBU66JRBFFTA2CPCPYN",
-    "name": "Monschau House",
-    "description": "A peaceful day in the hills over a German village. 30\"x40\" oil on cradled hardboard.",
-    "price_money": {
-      "amount": 120000,
-      "currency": "USD"
-    },
-    "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/4adfd9e783beae674a51bd5561bbd5f836128d8f/original.jpeg"
-    ],
-    "url": "https://leonkoella.square.site/product/monschau-house/MLER7SBU66JRBFFTA2CPCPYN",
-    "sold": false,
-    "categories": [
-      "studio"
-    ],
-    "category": "studio",
-    "updated_at": "2025-12-09T12:52:31.156Z",
-    "hero": true
   },
   {
     "id": "QRA3FV7XNSZHHOBQ4SFOCCKS",
