@@ -8,7 +8,6 @@
 
 {%- seo -%}
 
-<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
 <script
   src="https://kit.fontawesome.com/a12651e5cf.js"
   crossorigin="anonymous"
@@ -26,7 +25,7 @@
 <!-- MailerLite Universal -->
 <script>
   (function (w, d, e, u, f, l, n) {
-    (w[f] =
+    ((w[f] =
       w[f] ||
       function () {
         (w[f].q = w[f].q || []).push(arguments);
@@ -35,13 +34,13 @@
       (l.async = 1),
       (l.src = u),
       (n = d.getElementsByTagName(e)[0]),
-      n.parentNode.insertBefore(l, n);
+      n.parentNode.insertBefore(l, n));
   })(
     window,
     document,
     "script",
     "https://assets.mailerlite.com/js/universal.js",
-    "ml"
+    "ml",
   );
   ml("account", "1241183");
 </script>
@@ -61,3 +60,8 @@
 
   gtag("config", "G-WZ8GJYQRKE");
 </script>
+<script src="{{ '/assets/js/masonry.assist.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+<link
+  rel="stylesheet"
+  href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}"
+/>
