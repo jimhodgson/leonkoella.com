@@ -45,8 +45,8 @@ true %} {% assign art_sold = true %} {% endif %}
   <div class="home-grid">
     <div class="grid-sizer"></div>
     <div class="gutter-sizer"></div>
-    {% for art in artworks limit:12 %} {%- if hero and art.id == hero.id -%} {%-
-    continue -%} {%- endif -%}
+    {% for art in artworks %} {%- if hero and art.id == hero.id -%} {%- continue
+    -%} {%- endif -%}
 
     <article class="home-card">
       <a
