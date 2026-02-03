@@ -41,8 +41,8 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.75rem); }
 h3 { font-size: 1.25rem; }
 
 /* Links & media */
-a { color: #d7c932; text-underline-offset: 3px; }
-a:hover { opacity: .9; }
+a { color: #d7c932; text-underline-offset: 3px; opacity: 0.9; }
+a:hover { opacity: 1; }
 img, video { max-width: 100%; height: auto; display: block; }
 
 /* Layout helpers */
@@ -147,8 +147,8 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
   display: block;           /* it's an <a> */
   position: relative;
   margin: 0 0 2rem;
-  max-height: 80vh;
-  overflow: hidden;         /* optional: clips if huge */
+  max-height: none;
+  overflow: visible;         /* optional: clips if huge */
 }
 
 /* Hero image – keep aspect ratio, no squish */
@@ -364,5 +364,11 @@ p.about {
 @media (max-width: 1080px) {
   p.about { 
     font-size: 10pt;
+  }
+}
+@media (max-width: 573px) {
+  .grid-sizer,
+  .home-card {
+    width: calc(50% - 6px);
   }
 }

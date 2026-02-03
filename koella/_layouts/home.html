@@ -2,11 +2,14 @@
 layout: default
 ---
 
-{%- assign artworks = site.data.artworks | default: empty -%} {%- assign studio
-= artworks | where_exp: "a", "a.category == 'studio'" -%} {%- assign hero =
-artworks | where: "hero", true | first -%} {% if hero.sold == true %} {% assign
-hero_sold = true %} {% endif %} {% assign art_sold = false %} {% if art.sold ==
-true %} {% assign art_sold = true %} {% endif %}
+{%- assign artworks = site.data.artworks | default: empty -%} {%- assign hero =
+artworks | where: "hero", true | first -%} {%- assign studio_all = artworks |
+where_exp: "a", "a.categories contains 'studio'" -%} {%- assign pleinair_all =
+artworks | where_exp: "a", "a.categories contains 'plein air'" -%} {%- if hero
+and hero.id -%} {%- assign studio = studio_all | where_exp: "a", "a.id !=
+hero.id" -%} {%- assign pleinair = pleinair_all | where_exp: "a", "a.id !=
+hero.id" -%} {%- else -%} {%- assign studio = studio_all -%} {%- assign pleinair
+= pleinair_all -%} {%- endif -%}
 
 <div class="wrapper">
   {% if hero %}
@@ -41,13 +44,47 @@ true %} {% assign art_sold = true %} {% endif %}
   <h1>{{ site.title }}</h1>
   <p>{{ site.description }}</p>
   <p><em>No artworks loaded yet.</em></p>
-  {% endif %} {% if artworks and artworks.size > 0 %}
-  <div class="home-grid">
+  {% endif %} {%- comment -%} STUDIO SECTION {%- endcomment -%} {% if studio and
+  studio.size > 0 %}
+  <h2 class="home-section-title">Studio Pieces</h2>
+  <div class="home-grid" data-masonry-grid>
     <div class="grid-sizer"></div>
     <div class="gutter-sizer"></div>
-    {% for art in artworks %} {%- if hero and art.id == hero.id -%} {%- continue
-    -%} {%- endif -%}
 
+    {% for art in studio %}
+    <article class="home-card">
+      <a
+        class="frame-gold frame-gold--mat frame-gold--thumb {% if art.sold %}is-sold{% endif %}"
+        href="{{ art.url | default: '#' }}"
+        {%
+        if
+        art.sold
+        %}aria-label="Sold — {{ art.name | escape }}"
+        {%
+        endif
+        %}
+      >
+        {% if art.images and art.images[0] %}
+        <img
+          src="{{ art.images[0] }}"
+          alt="{{ art.name | escape }}"
+          loading="lazy"
+        />
+        {% else %}
+        <div style="aspect-ratio: 1/1"></div>
+        {% endif %}
+      </a>
+    </article>
+    {% endfor %}
+  </div>
+  {% endif %} {%- comment -%} PLEIN AIR SECTION {%- endcomment -%} {% if
+  pleinair and pleinair.size > 0 %}
+  <h2 class="home-section-title">Plein Air</h2>
+  <div class="home-grid" data-masonry-grid>
+    <div class="grid-sizer"></div>
+    <div class="gutter-sizer"></div>
+
+    {% for art in pleinair %}
     <article class="home-card">
       <a
         class="frame-gold frame-gold--mat frame-gold--thumb {% if art.sold %}is-sold{% endif %}"
