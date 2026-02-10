@@ -112,8 +112,39 @@ hero.id" -%} {%- else -%} {%- assign studio = studio_all -%} {%- assign pleinair
   </div>
   {% endif %}
 </div>
+<h2 class="home-section-title">2026 Events</h2>
+<table class="events">
+  <tr>
+    <td>Atlanta Dogwood Festival</td>
+    <td><a href="https://dogwood.org/">https://dogwood.org/</a></td>
+    <td>4/10-4/12</td>
+  </tr>
+  <tr>
+    <td>Magic City Art Connection - Birmingham, AL</td>
+    <td><a href="https://magiccityart.com/">https://magiccityart.com/</a></td>
+    <td>4/24-4/25</td>
+  </tr>
+</table>
+<div class="home-grid"></div>
 
 <div class="mailinglist">
   <h1>Email Sign Up</h1>
   <div class="ml-embedded" data-form="Tjc1Bl"></div>
+  <p class="ml-fallback" style="display: none">
+    Oh boy, the form didn't load.
+    <a
+      href="https://preview.mailerlite.io/forms/1241183/179032085045970203/share"
+      >Subscribe here</a
+    >.
+  </p>
+
+  <script>
+    setTimeout(function () {
+      var el = document.querySelector(".ml-embedded");
+      if (el && !el.innerHTML.trim()) {
+        var fb = document.querySelector(".ml-fallback");
+        if (fb) fb.style.display = "block";
+      }
+    }, 2500);
+  </script>
 </div>

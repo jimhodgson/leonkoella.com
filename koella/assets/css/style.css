@@ -41,7 +41,7 @@ h2 { font-size: clamp(1.4rem, 3vw, 1.75rem); }
 h3 { font-size: 1.25rem; }
 
 /* Links & media */
-a { color: #d7c932; text-underline-offset: 3px; opacity: 0.9; }
+a { color: #ffe900;; text-underline-offset: 3px; opacity: 0.9; }
 a:hover { opacity: 1; }
 img, video { max-width: 100%; height: auto; display: block; }
 
@@ -371,4 +371,11 @@ p.about {
   .home-card {
     width: calc(50% - 6px);
   }
+}
+table.events {
+  border-top: 1px white solid; 
+  font-size: 1rem;
+}
+table.events td {
+  padding: 20px;
 }
