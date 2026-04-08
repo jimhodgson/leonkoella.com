@@ -1,8 +1,29 @@
 [
   {
+    "id": "WPVKLUJXYPWOACMMKIHV7N7E",
+    "name": "Park Drive Bridge",
+    "description": "\"A quiet tribute to reclaimed space, Park Drive Bridge captures one of the rare city spots where cars give way to people—above and below. With its graceful arches and red accents, the bridge offers shade, serenity, and a moment of stillness in the urban rhythm. Leon Koella’s brushwork invites viewers to walk the curved path beneath, feel the cool air, and reflect on the beauty of shared public spaces.\" -- Suwanee Arts Center\nBest in Show, Harvest Exhibit",
+    "price_money": {
+      "amount": 120000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/705087811955662a27247eb674218a01c823ec38/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/8e5c2174e81cb2ec5864ad5ffac1e6b7e7f7fbdb/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/park-drive-bridge/WPVKLUJXYPWOACMMKIHV7N7E",
+    "sold": false,
+    "categories": [
+      "studio"
+    ],
+    "category": "studio",
+    "updated_at": "2026-04-08T11:26:36.048Z",
+    "hero": true
+  },
+  {
     "id": "632HI37OA4Z4MET26LTYFWPR",
     "name": "Pointe Park 2",
-    "description": "The only trouble with morning walks is if you enjoy them it's soon not morning anymore. \n\n6x6 cold wax and oil on hardboard",
+    "description": "The only trouble with morning walks is, if you enjoy them, soon it's not morning anymore.\n\n6x6 cold wax and oil on hardboard",
     "price_money": {
       "amount": 10000,
       "currency": "USD"
@@ -16,8 +37,8 @@
       "studio"
     ],
     "category": "studio",
-    "updated_at": "2026-02-03T01:15:11.506Z",
-    "hero": true
+    "updated_at": "2026-04-08T11:26:09.859Z",
+    "hero": false
   },
   {
     "id": "MLER7SBU66JRBFFTA2CPCPYN",
@@ -264,27 +285,6 @@
     ],
     "category": "studio",
     "updated_at": "2025-12-09T12:55:34.2Z",
-    "hero": false
-  },
-  {
-    "id": "WPVKLUJXYPWOACMMKIHV7N7E",
-    "name": "Park Drive Bridge",
-    "description": "\"A quiet tribute to reclaimed space, Park Drive Bridge captures one of the rare city spots where cars give way to people—above and below. With its graceful arches and red accents, the bridge offers shade, serenity, and a moment of stillness in the urban rhythm. Leon Koella’s brushwork invites viewers to walk the curved path beneath, feel the cool air, and reflect on the beauty of shared public spaces.\" -- Suwanee Arts Center\nBest in Show, Harvest Exhibit",
-    "price_money": {
-      "amount": 120000,
-      "currency": "USD"
-    },
-    "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/705087811955662a27247eb674218a01c823ec38/original.jpeg",
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/8e5c2174e81cb2ec5864ad5ffac1e6b7e7f7fbdb/original.jpeg"
-    ],
-    "url": "https://leonkoella.square.site/product/park-drive-bridge/WPVKLUJXYPWOACMMKIHV7N7E",
-    "sold": false,
-    "categories": [
-      "studio"
-    ],
-    "category": "studio",
-    "updated_at": "2025-12-09T12:54:33.116Z",
     "hero": false
   },
   {
