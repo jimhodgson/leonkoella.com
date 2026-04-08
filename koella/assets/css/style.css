@@ -168,6 +168,11 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
   background: linear-gradient(transparent, rgba(0,0,0,.55));
   color: #fff;
 }
+@media (max-width: 768px) {
+  .hero-text {
+    display: none;
+  }
+}
 
 
 @media (max-width: 1080px) {
