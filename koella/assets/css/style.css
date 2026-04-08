@@ -1,7 +1,6 @@
 ---
 ---
-@import url('https://fonts.googleapis.com/css2?family=Walter+Turncoat&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 /* =========================
    Koella — base styles
    ========================= */
@@ -29,12 +28,12 @@ body {
 }
 
 a.brand, #site-nav { 
-   font-family: "Walter Turncoat", Helvetica, sans-serif;
+   font-family: "Josefin Sans", Helvetica, sans-serif;
 }
 
 /* Type scale */
-h1, h2, h3, h4, h5, h6 { line-height: 1.25; margin: 1.5rem 0 .75rem; 
-   font-family: "Walter Turncoat", Helvetica, sans-serif;
+h1, h2, h3, h4, h5, h6 { font-weight: 300; line-height: 1.25; margin: 1.5rem 0 .75rem; 
+   font-family: "Josefin Sans", Helvetica, sans-serif;
 }
 h1 { font-size: clamp(1.8rem, 4vw, 2.25rem); }
 h2 { font-size: clamp(1.4rem, 3vw, 1.75rem); }
@@ -76,7 +75,7 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
 }
 
 .brand { text-align: center;
-  font-weight: 700; text-decoration: none; color: inherit;  font-size: 3em;}
+  font-weight: 300; text-decoration: none; color: inherit;  font-size: 3em;}
 @media (max-width: 800px) {
   .brand {
     font-size: 2em;
@@ -90,7 +89,7 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
   display: flex; gap: 1rem; justify-content: center; list-style-type: none; }
 .nav a { text-decoration: none; color: inherit; opacity: .85; }
 .nav a:hover { opacity: 1; }
-.nav a.active { font-weight: 600; border-bottom: 2px solid currentColor; }
+.nav a.active { font-weight: 100; border-bottom: 2px solid currentColor; }
 .nav-toggle { justify-self: end; display: none; background: none; border: 0; font-size: 1.25rem; line-height: 1; }
 
 @media (max-width: 1080px) {
@@ -162,7 +161,7 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
 
 
 .hero-text {
-  display: none;
+  /* display: none; */
   position: absolute;
   inset: auto 0 0 0;
   padding: 1rem 1.25rem;
@@ -179,55 +178,64 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
 
 .home-hero h1 { margin: .25rem 0 .5rem; font-size: clamp(1.5rem, 3vw, 2.25rem); }
 
+/* =========================
+    Home Grid Section 
+   ========================= */
 
-.home-card { 
-  width: 19.2%;
-  margin-bottom: 5px; 
+.home-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  margin: 2rem 0 3rem;
+  align-items: end;
 }
-.gutter-sizer { width: 5px; }
 
-.grid-sizer { width: 19.2%; }   /* match desktop card width */
-@media (max-width: 1080px) {
-  .grid-sizer { width: 49.7%; } /* match mobile card width */
-}
-
-.home-card--width2 { width: 400px; }
-
-.home-card > a {
-  display: block;
-}
-/* okay on mobile? */
-@media (max-width: 1080px) {
-  .home-card {
-    width: 49.7%;
-    margin-bottom: 5px;
-  }
-  .home.card--width2 {
-    width: 50%;
+@media (max-width: 900px) {
+  .home-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
   }
 }
 
-/* Base: images start with natural aspect ratio;
-   JS will overwrite width/height inline */
-.home-card img {
-  display: block;
-  height: auto;
+@media (max-width: 600px) {
+  .home-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.home-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.home-card > a.frame-gold {
+  align-self: flex-start;
+}
+
+.home-card .frame-gold {
+  display: inline-block;
   width: auto;
-  padding: 1px;
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: auto;
+  overflow: visible;
 }
 
-/* For frames in the grid, don't force 100% width/height;
-   JS will set explicit sizes */
+.home-card img,
 .home-card .frame-gold > img,
 .home-card .frame-gold > picture,
 .home-card .frame-gold > a > img {
-  height: auto;
+  display: block;
   width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 320px;
   object-fit: contain;
 }
-
-/* Optional full-bleed hero even inside wrappers */
-.full-bleed { margin-inline: calc(50% - 50vw); width: 100vw; }
 
 /* =========================
    Post content
@@ -236,6 +244,30 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
 .post-header .post-title { margin: 0 0 .25rem; }
 .post-meta { color: var(--muted); font-size: .95rem;}
 .post-content img { border-radius: 12px; }
+
+/* =========================
+   Art meta
+   ========================= */
+
+.art-meta {
+  margin-top: 0.75rem;
+  text-align: left;
+  line-height: 120%;
+}
+
+.art-meta h3 {
+  margin: 0 0 0.25rem;
+}
+
+.art-price {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.art-status {
+  margin-top: 0.25rem;
+}
 
 /* =========================
    Footer
@@ -317,9 +349,9 @@ th, td { text-align: left; border-bottom: var(--border); padding: .5rem .6rem; }
 .frame-gold > picture,
 .frame-gold > a > img {
   display: block;
-  width: 100%;
-  height: auto;             /* <-- let height follow the image */
-  object-fit: contain;      /* show whole painting within the frame */
+  width: auto;
+  height: auto;
+  max-width: 100%;
   border-radius: 0;
 }
 
@@ -366,12 +398,7 @@ p.about {
     font-size: 10pt;
   }
 }
-@media (max-width: 573px) {
-  .grid-sizer,
-  .home-card {
-    width: calc(50% - 6px);
-  }
-}
+
 table.events {
   border-top: 1px white solid; 
   font-size: 1rem;

@@ -47,11 +47,14 @@ hero.id" -%} {%- else -%} {%- assign studio = studio_all -%} {%- assign pleinair
   {% endif %} {%- comment -%} STUDIO SECTION {%- endcomment -%} {% if studio and
   studio.size > 0 %}
   <h2 class="home-section-title">Studio Pieces</h2>
-  <div class="home-grid">
+  <div class="home-grid" data-masonry-grid>
+    <div class="grid-sizer"></div>
+    <div class="gutter-sizer"></div>
+
     {% for art in studio %}
     <article class="home-card">
       <a
-        class="frame-gold frame-gold--mat frame-gold--thumb art-link {% if art.sold %}is-sold{% endif %}"
+        class="frame-gold frame-gold--mat frame-gold--thumb {% if art.sold %}is-sold{% endif %}"
         href="{{ art.url | default: '#' }}"
         {%
         if
@@ -68,36 +71,23 @@ hero.id" -%} {%- else -%} {%- assign studio = studio_all -%} {%- assign pleinair
           loading="lazy"
         />
         {% else %}
-        <div class="art-placeholder"></div>
+        <div style="aspect-ratio: 1/1"></div>
         {% endif %}
       </a>
-
-      <div class="art-meta">
-        <p>
-          <h3>{{ art.name }}</h3>
-          {{art.description | truncatewords: 10}} <a class="truncated" href="{{ art.url }}">[more]</a> - {% if art.price_money and
-          art.price_money.amount %}
-          <span class="art-price">
-            {% if art.sold != true %}
-            {{ art.price_money.amount | divided_by: 100.0 | prepend: "$" }}
-            {% else %}
-            Sold.
-            {% endif %}
-          </span>
-        </p>
-        {% endif %}
-      </div>
     </article>
     {% endfor %}
   </div>
   {% endif %} {%- comment -%} PLEIN AIR SECTION {%- endcomment -%} {% if
   pleinair and pleinair.size > 0 %}
   <h2 class="home-section-title">Plein Air</h2>
-  <div class="home-grid">
+  <div class="home-grid" data-masonry-grid>
+    <div class="grid-sizer"></div>
+    <div class="gutter-sizer"></div>
+
     {% for art in pleinair %}
     <article class="home-card">
       <a
-        class="frame-gold frame-gold--mat frame-gold--thumb art-link {% if art.sold %}is-sold{% endif %}"
+        class="frame-gold frame-gold--mat frame-gold--thumb {% if art.sold %}is-sold{% endif %}"
         href="{{ art.url | default: '#' }}"
         {%
         if
@@ -114,54 +104,35 @@ hero.id" -%} {%- else -%} {%- assign studio = studio_all -%} {%- assign pleinair
           loading="lazy"
         />
         {% else %}
-        <div class="art-placeholder"></div>
+        <div style="aspect-ratio: 1/1"></div>
         {% endif %}
       </a>
-
-      <div class="art-meta">
-        <p>
-          <h3>{{ art.name }}</h3>
-          {{art.description | truncatewords: 10}} <a class="truncated" href="{{ art.url }}">[more]</a> - {% if art.price_money and
-          art.price_money.amount %}
-          <span class="art-price">
-            {{ art.price_money.amount | divided_by: 100.0 | prepend: "$" }}
-          </span>
-        </p>
-        {% endif %}
-      </div>
     </article>
     {% endfor %}
   </div>
   {% endif %}
 </div>
 <h2 class="home-section-title">2026 Events</h2>
-<div class="table-wrap">
-  <table class="events">
-    <tbody>
-      <tr>
-        <td data-label="Event">Atlanta Dogwood Festival</td>
-        <td data-label="Website">
-          <a href="https://dogwood.org/">dogwood.org</a>
-        </td>
-        <td data-label="Date">4/10-4/12</td>
-      </tr>
-      <tr>
-        <td data-label="Event">Magic City Art Connection - Birmingham, AL</td>
-        <td data-label="Website">
-          <a href="https://magiccityart.com/">magiccityart.com</a>
-        </td>
-        <td data-label="Date">4/24-4/25</td>
-      </tr>
-      <tr>
-        <td data-label="Event">Virginia-Highland Summerfest - Atlanta, GA</td>
-        <td data-label="Website">
-          <a href="https://vahi.org/summerfest/">vahi.org/summerfest</a>
-        </td>
-        <td data-label="Date">6/6-6/7</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<table class="events">
+  <tr>
+    <td>Atlanta Dogwood Festival</td>
+    <td><a href="https://dogwood.org/">https://dogwood.org/</a></td>
+    <td>4/10-4/12</td>
+  </tr>
+  <tr>
+    <td>Magic City Art Connection - Birmingham, AL</td>
+    <td><a href="https://magiccityart.com/">https://magiccityart.com/</a></td>
+    <td>4/24-4/25</td>
+  </tr>
+  <tr>
+    <td>Virginia-Highland Summerfest - Atlanta, GA</td>
+    <td>
+      <a href="https://vahi.org/summerfest/">https://vahi.org/summerfest/</a>
+    </td>
+    <td>6/6-6/7</td>
+  </tr>
+</table>
+<div class="home-grid"></div>
 
 <div class="mailinglist">
   <h1>Email Sign Up</h1>
