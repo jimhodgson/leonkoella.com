@@ -213,13 +213,13 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-start;
+  align-items: center;
   height: 100%;
 }
 
-.home-card > a.frame-gold {
+/* .home-card > a.frame-gold {
   align-self: flex-start;
-}
+} */
 
 .home-card .frame-gold {
   display: inline-block;
@@ -262,6 +262,11 @@ pre { background: #f6f6f6; padding: 1rem; border-radius: 8px; overflow: auto; }
 
 .art-meta h3 {
   margin: 0 0 0.25rem;
+  min-height: 2.4em;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .art-price {

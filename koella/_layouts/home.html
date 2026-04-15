@@ -124,7 +124,11 @@ hero.id" -%} {%- else -%} {%- assign studio = studio_all -%} {%- assign pleinair
           {{art.description | truncatewords: 10}} <a class="truncated" href="{{ art.url }}">[more]</a> - {% if art.price_money and
           art.price_money.amount %}
           <span class="art-price">
+            {% if art.sold != true %}
             {{ art.price_money.amount | divided_by: 100.0 | prepend: "$" }}
+            {% else %}
+            Sold.
+            {% endif %}
           </span>
         </p>
         {% endif %}
@@ -139,13 +143,6 @@ hero.id" -%} {%- else -%} {%- assign studio = studio_all -%} {%- assign pleinair
   <table class="events">
     <tbody>
       <tr>
-        <td data-label="Event">Atlanta Dogwood Festival</td>
-        <td data-label="Website">
-          <a href="https://dogwood.org/">dogwood.org</a>
-        </td>
-        <td data-label="Date">4/10-4/12</td>
-      </tr>
-      <tr>
         <td data-label="Event">Magic City Art Connection - Birmingham, AL</td>
         <td data-label="Website">
           <a href="https://magiccityart.com/">magiccityart.com</a>
@@ -158,6 +155,20 @@ hero.id" -%} {%- else -%} {%- assign studio = studio_all -%} {%- assign pleinair
           <a href="https://vahi.org/summerfest/">vahi.org/summerfest</a>
         </td>
         <td data-label="Date">6/6-6/7</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h2 class="home-section-title">Past Events</h2>
+<div class="table-wrap">
+  <table class="events">
+    <tbody>
+      <tr>
+        <td data-label="Event">Atlanta Dogwood Festival</td>
+        <td data-label="Website">
+          <a href="https://dogwood.org/">dogwood.org</a>
+        </td>
+        <td data-label="Date">4/10-4/12/2026</td>
       </tr>
     </tbody>
   </table>
