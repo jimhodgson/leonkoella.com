@@ -1,5 +1,50 @@
 [
   {
+    "id": "PULNUXNCFS7TRWWPUJPEJ7LP",
+    "name": "Blue Ridge Arts 10.11.25",
+    "description": "A plein air piece painted on Oct 11th 2025 at the Blue Ridge GA Fall Arts in the Park festival. 8\"x10\" oil on hardboard.",
+    "price_money": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/f6316535f4a08d4fe5c0d8a5ab3592275bf3f64f/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/47398e0aac2fb5dba91a6a6bdcbd5b7d67d3c9a4/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/b8bed5076cd92677d6ea19aa1451587906642aa5/original.jpeg"
+    ],
+    "url": "https://leonkoella.square.site/product/blue-ridge-arts-10-11-25/PULNUXNCFS7TRWWPUJPEJ7LP",
+    "sold": true,
+    "categories": [
+      "plein air"
+    ],
+    "category": "plein air",
+    "updated_at": "2026-04-15T14:52:23.439Z",
+    "hero": false
+  },
+  {
+    "id": "TWFGFACT2H3XZ7FV2ANYZRBR",
+    "name": "Swamp Rabbit Trail 11.15.25",
+    "description": "The Swamp Rabbit Trail follows the Reedy River through downtown Greenville, SC, including the falls here under the Liberty Bridge. Fantastic weather. Friendly folks stopping to chat. Hard to beat. 8\"10\" oil on hardboard.",
+    "price_money": {
+      "amount": 10000,
+      "currency": "USD"
+    },
+    "images": [
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/56947cc84e02bfeb8aad37e3e0807fa6c1a3392c/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/42760a6b46021159baece5d190fc7ad8f15de1ea/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/3d9c7fb152babe383f6eb5479b30e6362f6c0bee/original.jpeg",
+      "https://items-images-production.s3.us-west-2.amazonaws.com/files/906a5b61dbaccbcb2936b23b3f6a5bb65aab5b65/original.png"
+    ],
+    "url": "https://leonkoella.square.site/product/swamp-rabbit-trail-11-15-25/TWFGFACT2H3XZ7FV2ANYZRBR",
+    "sold": true,
+    "categories": [
+      "plein air"
+    ],
+    "category": "plein air",
+    "updated_at": "2026-04-15T14:52:09.448Z",
+    "hero": false
+  },
+  {
     "id": "TDHEV3BRPOYBCY4ABAW4GLID",
     "name": "Greenville Alley",
     "description": "I just love alleyways, maybe because there are so few of them. \n\n6x6 cold wax and oil on hardboard",
@@ -17,29 +62,6 @@
     ],
     "category": "studio",
     "updated_at": "2026-04-15T13:27:41.081Z",
-    "hero": false
-  },
-  {
-    "id": "TWFGFACT2H3XZ7FV2ANYZRBR",
-    "name": "Swamp Rabbit Trail, Greenville SC, 11.15.25",
-    "description": "The Swamp Rabbit Trail follows the Reedy River through downtown Greenville, SC, including the falls here under the Liberty Bridge. Fantastic weather. Friendly folks stopping to chat. Hard to beat. 8\"10\" oil on hardboard.",
-    "price_money": {
-      "amount": 10000,
-      "currency": "USD"
-    },
-    "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/56947cc84e02bfeb8aad37e3e0807fa6c1a3392c/original.jpeg",
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/42760a6b46021159baece5d190fc7ad8f15de1ea/original.jpeg",
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/3d9c7fb152babe383f6eb5479b30e6362f6c0bee/original.jpeg",
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/906a5b61dbaccbcb2936b23b3f6a5bb65aab5b65/original.png"
-    ],
-    "url": "https://leonkoella.square.site/product/swamp-rabbit-trail-greenville-sc-11-15-25/TWFGFACT2H3XZ7FV2ANYZRBR",
-    "sold": true,
-    "categories": [
-      "plein air"
-    ],
-    "category": "plein air",
-    "updated_at": "2026-04-15T13:27:19.852Z",
     "hero": false
   },
   {
@@ -120,28 +142,6 @@
     ],
     "category": "studio",
     "updated_at": "2026-04-15T13:26:53.72Z",
-    "hero": false
-  },
-  {
-    "id": "PULNUXNCFS7TRWWPUJPEJ7LP",
-    "name": "Blue Ridge Fall Arts in the Park 10.11.25",
-    "description": "A plein air piece painted on Oct 11th 2025 at the Blue Ridge GA Fall Arts in the Park festival. 8\"x10\" oil on hardboard.",
-    "price_money": {
-      "amount": 10000,
-      "currency": "USD"
-    },
-    "images": [
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/f6316535f4a08d4fe5c0d8a5ab3592275bf3f64f/original.jpeg",
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/47398e0aac2fb5dba91a6a6bdcbd5b7d67d3c9a4/original.jpeg",
-      "https://items-images-production.s3.us-west-2.amazonaws.com/files/b8bed5076cd92677d6ea19aa1451587906642aa5/original.jpeg"
-    ],
-    "url": "https://leonkoella.square.site/product/blue-ridge-fall-arts-in-the-park-10-11-25/PULNUXNCFS7TRWWPUJPEJ7LP",
-    "sold": true,
-    "categories": [
-      "plein air"
-    ],
-    "category": "plein air",
-    "updated_at": "2026-04-15T13:26:35.244Z",
     "hero": false
   },
   {
