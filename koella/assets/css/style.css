@@ -409,10 +409,10 @@ p.about {
   }
 }
 
-table.events {
+table.events, table.past-events {
   border-top: 1px white solid; 
   font-size: 1rem;
 }
-table.events td {
+table.events, table.past-events td {
   padding: 20px;
 }
